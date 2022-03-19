@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Source Sans Pro', sans-serif;;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.heading-container{
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0px;
+}
+
+.heading-container > *{
+  margin: 0px;
+  padding: 5px;
+}
+.heading-container > p{
+  padding-top: 15px;
+  font-size: 15px;
+}
+
+.login-form{
+  width: 380px;
+  margin: 2em auto;
+  padding: 3em 2em 2em 3em;
+  background: #fafafa;
+  border: 1px solid #ebebeb;
+}
+
+.group{
+  margin-bottom: 10px;
+}
+
+.form-link{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+.login-form a{
+  padding-top: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #31A2D5;
+  text-decoration: none;
+}
+
+input[type="username"],
+input[type="password"]{
+  width: 100%;
+  color: #0e5886;
+  border: 2px solid #d1edf1;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 12px;
+  outline: none;
+}
+input:hover{
+  border: 2px solid #094F9F;
+}
+input::placeholder {
+  font-family: sans-serif;
+  color: #b3aeacbe;
+}
+.loginBtn{
+  width: 100%;
+  padding: 15px 0px;
+  background: #497FAF;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+  color: #fff;
+  border: none;
+  font-weight: 400;
+  border-radius: 2px;
+}
+.loginBtn:hover{
+  background: #094F9F;
+}
+
+.error, #username-error, #password-error{
+  color: red;
+  font-size: 15px;
+}
+#username-error, #password-error{
+  display: none;
+}
