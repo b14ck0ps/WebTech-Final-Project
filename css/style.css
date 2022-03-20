@@ -1,37 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
-*{
+
+* {
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Source Sans Pro', sans-serif;;
+  font-family: 'Source Sans Pro', sans-serif;
+  ;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.heading-container{
+.heading-container {
   text-align: center;
   margin-bottom: 40px;
   padding: 0px;
 }
 
-.heading-container > *{
+.heading-container>* {
   margin: 0px;
   padding: 5px;
 }
-.heading-container > p{
+
+.heading-container>p {
   padding-top: 15px;
   font-size: 15px;
 }
 
-.login-form{
+.login-form {
   width: 380px;
   margin: 2em auto;
   padding: 3em 2em 2em 3em;
@@ -39,11 +42,11 @@ body{
   border: 1px solid #ebebeb;
 }
 
-.group{
+.group {
   margin-bottom: 10px;
 }
 
-.form-link{
+.form-link {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -51,7 +54,7 @@ body{
   font-size: 12px;
 }
 
-.login-form a{
+.login-form a {
   padding-top: 25px;
   font-size: 15px;
   font-weight: 500;
@@ -60,7 +63,7 @@ body{
 }
 
 input[type="username"],
-input[type="password"]{
+input[type="password"] {
   width: 100%;
   color: #0e5886;
   border: 2px solid #d1edf1;
@@ -70,14 +73,17 @@ input[type="password"]{
   padding: 12px;
   outline: none;
 }
-input:hover{
+
+input:hover {
   border: 2px solid #094F9F;
 }
+
 input::placeholder {
   font-family: sans-serif;
   color: #b3aeacbe;
 }
-.loginBtn{
+
+.loginBtn {
   width: 100%;
   padding: 15px 0px;
   background: #497FAF;
@@ -89,14 +95,74 @@ input::placeholder {
   font-weight: 400;
   border-radius: 2px;
 }
-.loginBtn:hover{
+
+.loginBtn:hover {
   background: #094F9F;
 }
 
-.error, #username-error, #password-error{
+.error,
+#username-error,
+#password-error {
   color: red;
   font-size: 15px;
 }
-#username-error, #password-error{
+
+#username-error,
+#password-error {
   display: none;
+}
+
+/* dashboard styles */
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.topnav {
+  width: 80%;
+  overflow: hidden;
+  background-color: transparent;
+  border: #1576e6 solid 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.topnav a {
+  display: flex;
+  /* justify-content: space-around; */
+  color: #1576e6;
+  padding: 25px 20px;
+  text-decoration: none;
+}
+
+#profile-link:hover,
+.topnav a:hover {
+  background-color: transparent;
+  color: black;
+}
+
+#logo {
+  font-size: 30px;
+  color: #1576e6;
+  font-weight: bold;
+}
+
+#profile-link,
+#welcome {
+  color: #1576e6;
+  padding-left: 4px;
+}
+
+.vl {
+  border-left: 2px solid #B3B2B1;
+  height: 7vh;
 }
