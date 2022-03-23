@@ -7,7 +7,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         session_start();
         $_SESSION['status'] = true;
         $_SESSION['username'] = $username;
-        header('location: ../views/profile.php');
+        // header('location: ../views/profile.php');
+        header('location: ../views/dashboard.html');
     } else
         header('location: ../views/login.php?error');
 } else
