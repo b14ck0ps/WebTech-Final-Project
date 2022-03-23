@@ -10,6 +10,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   background-color: #f6f6f6;
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -244,7 +245,6 @@ input::placeholder {
 
 .main-body {
   width: 80%;
-  height: 80vh;
   margin-left: 6%;
   margin-right: 11%;
   border: rgb(209, 208, 208) solid 1px;
@@ -304,21 +304,44 @@ td {
   color: #05448b;
 }
 
-
-/* small screen fix */
-#smallScreen{
- display: none; 
+/* USER PROFILE */
+.admin-profile {
+  width: 200%;
+  padding: 5px;
+  font-weight: lighter;
+  margin: 3px 0px;
+  border-bottom: 1px solid rgb(207, 204, 204);
 }
+.fullname {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(207, 204, 204);
+}
+.info-text{
+  padding-left: 20px;
+  font-size: 18px;
+}
+.prfile-flex{
+  display: flex;
+  justify-content: space-between;
+}
+/* small screen fix */
+#smallScreen {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
-  .desktop{
+  .desktop {
     display: none;
   }
-  #smallScreen{
+
+  #smallScreen {
     height: 5px;
     margin: 30% 0 0 0;
     text-align: center;
     font-size: larger;
     color: red;
-    display: block; 
-   }
+    display: block;
+  }
 }

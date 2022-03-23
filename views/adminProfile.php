@@ -1,7 +1,7 @@
 <?php
 require_once('../controllers/pageAccess.php');
 require_once('../model/adminModel.php');
-$user = userinfo($_GET['username']);
+$user = userinfo($_SESSION['username']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

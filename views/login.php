@@ -14,7 +14,7 @@
                 <h2>SCHOOL PORTAL</h2>
                 <p>Sign in with your organizational username</p>
                 <?php
-                if (isset($_GET['error'])) {
+                if (isset($_GET['msg']) && $_GET['msg'] == 'error') {
                     echo '<p class="error">Wrong username or password</p>';
                 }
                 ?>
