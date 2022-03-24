@@ -15,17 +15,17 @@
                 <p>Sign in with your organizational username</p>
                 <?php
                 if (isset($_GET['msg']) && $_GET['msg'] == 'error') {
-                    echo '<p class="error">Wrong username or password</p>';
+                    echo '<p class="error-user">Wrong username or password</p>';
                 }
                 ?>
             </div>
             <div class="group login-input">
                 <input type="username" name="username" placeholder="User name">
-                <span id="username-error">The User Name field is required.</span>
+                <span class="error" id="username-error">The User Name field is required.</span>
             </div>
             <div class="group login-input">
                 <input type="password" name="password" placeholder="Password">
-                <span id="password-error">The password field is required.</span>
+                <span class="error" id="password-error">The password field is required.</span>
             </div>
             <button class="loginBtn" type="submit" name="submit">Log in</button>
             <div class="group form-link">
