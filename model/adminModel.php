@@ -3,7 +3,7 @@ require_once('../controllers/database.php');
 function login($username, $password)
 {
     global $conn;
-    $sql = "SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}'";
+    $sql = "SELECT * FROM adminInfo WHERE username = '{$username}' AND password = '{$password}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row) {
@@ -15,7 +15,7 @@ function login($username, $password)
 function userinfo($username)
 {
     global $conn;
-    $sql = "SELECT * FROM userinfo WHERE username = '{$username}'";
+    $sql = "SELECT * FROM adminInfo WHERE username = '{$username}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row)
@@ -26,7 +26,7 @@ function userinfo($username)
 function isUserTaken($username)
 {
     global $conn;
-    $sql = "SELECT * FROM users WHERE username = '{$username}'";
+    $sql = "SELECT * FROM adminInfo WHERE username = '{$username}'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row) {
@@ -35,20 +35,20 @@ function isUserTaken($username)
         return false;
     }
 }
-function registration($id, $username, $password, $first_name, $last_name, $gender, $email, $phone)
+function registration($f_name, $l_name, $gender,$username,$password,$email,$phone,$address)
 {
     global  $conn;
-    $sql = "INSERT INTO userinfo (id , username, password, first_name,last_name, gender , email, phone)  values ('{$id}','{$username}'  , '{$password}' , '{$first_name}', '{$last_name}' , '{$gender}' , '{$email}' , '{$phone}' )";
+    $sql = "INSERT INTO adminInfo  (f_name,l_name,gender,username,password,email,phone,address)  values ('{$f_name}', '{$l_name}', '{$gender}','{$username}','{$password}','{$email}','{$phone}','{$address}')";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
         header('lcoation: ../views/adminDashboard.php');
     } else
         header('lcoation: ../views/registration.php?msg=error');
 }
-function getAllstudent()
+function getAlladmin()
 {
     global $conn;
-    $sql = "SELECT * from userinfo";
+    $sql = "SELECT * from adminInfo";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {
