@@ -21,7 +21,7 @@ $user = userinfo($_GET['username']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <div class="fullname"><?= strtoupper($user['last_name']) ?>, <?= strtoupper($user['first_name']) ?></div>
+                <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                 <div class="prfile-flex">
                     <div class="info-text">
                         <div class="admin-profile">
@@ -43,6 +43,10 @@ $user = userinfo($_GET['username']);
                         <div class="admin-profile">
                             <label for="phone">Phone: </label>
                             <?= $user['phone'] ?>
+                        </div>
+                        <div class="admin-profile">
+                            <label for="address">Address: </label>
+                            <?= $user['address'] ?>
                         </div>
                     </div>
                     <div class="profile-picture">

@@ -21,7 +21,7 @@ $user = userinfo($_SESSION['username']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <div class="fullname"><?= strtoupper($user['last_name']) ?>, <?= strtoupper($user['first_name']) ?></div>
+                <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                 <div class="prfile-flex">
                     <div class="info-text">
                         <div class="admin-profile">
