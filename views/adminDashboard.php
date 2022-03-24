@@ -24,14 +24,14 @@ require_once('../controllers/pageAccess.php');
                     </div>
                     <div class="filter">
                         <select name="filter" id="filter">
-                            <option value="student">Student</option>
+                        <option value="admin">Admin</option>
                             <option value="stuff">Stuff</option>
-                            <option value="admin">Admin</option>
                             <option value="faculty">Faculty</option>
+                            <option value="student">Student</option>
                         </select>
                     </div>
                 </div>
-                <?php include_once('studentList.php') ?>
+                <?php include_once('adminlist.php') ?>
             </div>
         </div>
     </div>
