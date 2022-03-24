@@ -51,7 +51,7 @@ body {
   font-size: 15px;
 }
 
-.login-form {
+.login-form ,.reg-form {
   width: 380px;
   margin: 2em auto;
   padding: 3em 2em 2em 3em;
@@ -79,13 +79,12 @@ body {
   text-decoration: none;
 }
 
-input[type="username"],
-input[type="password"] {
+input {
   width: 100%;
   color: #0e5886;
   border: 2px solid #d1edf1;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   padding: 12px;
   outline: none;
@@ -95,12 +94,19 @@ input:hover {
   border: 2px solid #094F9F;
 }
 
+input:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
 input::placeholder {
   font-family: sans-serif;
   color: #b3aeacbe;
 }
 
-.loginBtn {
+.loginBtn,
+.RegBtn {
   width: 100%;
   padding: 15px 0px;
   background: #497FAF;
@@ -113,19 +119,18 @@ input::placeholder {
   border-radius: 2px;
 }
 
-.loginBtn:hover {
+.loginBtn:hover ,.RegBtn:hover {
   background: #094F9F;
 }
 
-.error,
-#username-error,
-#password-error {
+.error,.error-user
+{
   color: red;
   font-size: 15px;
 }
 
-#username-error,
-#password-error {
+.error
+{
   display: none;
 }
 
@@ -278,29 +283,29 @@ input::placeholder {
 }
 
 /* Table style */
-.student-table {
+.student-table, .admin-table {
   margin: 25px 20px;
 }
 
-.student-table table {
+.student-table, .admin-table table {
   width: 100%;
 }
 
-.student-table th,
+.student-table, .admin-table th,
 td {
   text-align: center;
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.student-table a {
+.student-table, .admin-table a {
   text-decoration: none;
   font-size: 20px;
   color: #5da9ff;
   padding: 8px;
 }
 
-.student-table a:hover {
+.student-table, .admin-table a:hover {
   color: #05448b;
 }
 
@@ -312,20 +317,38 @@ td {
   margin: 3px 0px;
   border-bottom: 1px solid rgb(207, 204, 204);
 }
+
 .fullname {
   padding: 20px;
   font-size: 20px;
   font-weight: bold;
   border-bottom: 1px solid rgb(207, 204, 204);
 }
-.info-text{
+
+.info-text {
   padding-left: 20px;
   font-size: 18px;
 }
-.prfile-flex{
+
+.prfile-flex {
   display: flex;
   justify-content: space-between;
 }
+
+/* REGISTRATION */
+.Rgroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+input[type="radio"] {
+  padding: 0;
+  margin: 0;
+  color: #05448b;
+}
+
 /* small screen fix */
 #smallScreen {
   display: none;
