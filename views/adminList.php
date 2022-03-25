@@ -20,8 +20,8 @@
             foreach ($admins as $admin) {
                 echo "
                 <tr>
-                    <td><a href='profile.php?username={$admin['username']}'>{$admin['id']}</a></td>
-                    <td>{$admin['f_name']}  {$admin['l_name']}</td>
+                    <td>{$admin['id']}</td>
+                    <td><a href='profile.php?username={$admin['username']}'>{$admin['f_name']}  {$admin['l_name']}</a></td>
                     <td>{$admin['username']}</td>
                     <td>{$admin['email']}</td>
                 </tr>
