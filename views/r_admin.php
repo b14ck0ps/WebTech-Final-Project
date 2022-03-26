@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="reg-container">
-        <form class="reg-form" id="registration-form"  method="post" action="../controllers/RegistrationCheck.php">
+        <form class="reg-form" id="registration-form"  method="post" action="../controllers/RegistrationCheck.php" enctype='multipart/form-data'>
             <div class="heading-container">
                 <h2>Admin Registration</h2>
                 <p>Please Enter All The Necessary Information</p>
@@ -24,13 +24,18 @@
                 <input type="l_name" name="l_name" placeholder="Last Name">
                 <span class="error" id="l_name-error">The field is required.</span>
             </div>
-            <div class="Rgroup">
+            <div class="Rgroup reg">
                 <input type="radio" name="gender" value="Male">
-                <label>MALE</label>
+                <label>Male</label>
                 <input type="radio" name="gender" value="Female">
                 <label>Female</label>
                 <input type="radio" name="gender" value="Other">
                 <label>Other</label>
+                <!-- optional -->
+            </div>
+            <div class="group">
+                <input type="date" name="dob">
+                <!-- optional -->
             </div>
             <div class="group">
                 <input type="username" name="username" placeholder="Username">

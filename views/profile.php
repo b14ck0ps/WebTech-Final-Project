@@ -7,6 +7,7 @@ $user = userinfo($_GET['username']);
 <html lang="en">
 
 <head>
+    <script src="../javascript/style.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>user profile</title>
 </head>
@@ -37,6 +38,10 @@ $user = userinfo($_GET['username']);
                             <?= $user['gender'] ?>
                         </div>
                         <div class="admin-profile">
+                            <label for="dob">Date of Birth: </label>
+                            <?= $user['dob'] ?>
+                        </div>
+                        <div class="admin-profile">
                             <label for="email">Email: </label>
                             <?= $user['email'] ?>
                         </div>
@@ -48,17 +53,27 @@ $user = userinfo($_GET['username']);
                             <label for="address">Address: </label>
                             <?= $user['address'] ?>
                         </div>
+                        <?php
+                            if(isset($_GET['msg']) && $_GET['msg'] == 'success'){
+                                echo '<div class="success">Profile updated successfully</div>';
+                            }
+                            if(isset($_GET['msg']) && $_GET['msg'] == 'uploadfail'){
+                                echo '<div class="error-up">Profile Picture failed to upload</div>';
+                            }
+                        ?>
                     </div>
                     <div class="profile-picture">
-                        <img src="https://via.placeholder.com/300" alt="profile picture">
+                        <img id="profile_picture" src="<?= $user['profile_picture'] ?>" alt="profile picture">
                     </div>
+                </div>
+                <div class="group">
+                    <button class="editbtn"><a href="editProfile.php?username=<?= $user['username'] ?>">Edit Profile</a></button>
                 </div>
             </div>
         </div>
     </div>
     </div>
     </div>
-    <script src="../javascript/style.js"></script>
 </body>
 
 </html>

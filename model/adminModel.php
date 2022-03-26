@@ -35,15 +35,15 @@ function isUserTaken($username)
         return false;
     }
 }
-function registration($f_name, $l_name, $gender,$username,$password,$email,$phone,$address)
+function registration($f_name, $l_name, $gender, $dob, $username, $password, $email, $phone, $address, $profile_picture)
 {
     global  $conn;
-    $sql = "INSERT INTO adminInfo  (f_name,l_name,gender,username,password,email,phone,address)  values ('{$f_name}', '{$l_name}', '{$gender}','{$username}','{$password}','{$email}','{$phone}','{$address}')";
+    $sql = "INSERT INTO adminInfo  (f_name,l_name,gender,dob,username,password,email,phone,address,profile_picture)  values ('{$f_name}', '{$l_name}', '{$gender}','{$dob}','{$username}','{$password}','{$email}','{$phone}','{$address}','{$profile_picture}')";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
-        header('lcoation: ../views/adminDashboard.php');
+        header('location: ../views/adminDashboard.php');
     } else
-        header('lcoation: ../views/registration.php?msg=error');
+        header('location: ../views/registration.php?msg=error');
 }
 function getAlladmin()
 {
@@ -55,4 +55,14 @@ function getAlladmin()
         $student[] = $row;
     }
     return $student;
+}
+function userUpdate($f_name, $l_name, $gender, $dob,$username, $email, $phone, $address, $profile_picture)
+{
+    global  $conn;
+    $sql = "UPDATE admininfo SET f_name = '{$f_name}',l_name = '{$l_name}',gender = '{$gender}',dob = '{$dob}',email = '{$email}',phone = '{$phone}',address = '{$address}',profile_picture = '{$profile_picture}' WHERE username = '{$username}' ";
+    $reg = mysqli_query($conn, $sql);
+    if ($reg) {
+        return true;
+    } else
+        return false;
 }
