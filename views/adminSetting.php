@@ -21,32 +21,33 @@ $user = userinfo($_SESSION['username']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <div class="fullname"> User ID : <?= $user['id'] ?></div>
-                <div class="prfile-flex">
-                    <div class="info-text">
-                        <div class="edit-admin-profile">
-                            <label for="username">Username: </label>
-                            <input type="text" name="username" value="<?= $user['username'] ?>"></input>
-                        </div>
-                        <div class="edit-admin-profile">
-                            <label for="password">Old Password: </label>
-                            <input type="password" name="password"></input>
-                        </div>
-                        <div class="edit-admin-profile">
-                            <label for="password">New Password: </label>
-                            <input type="password" name="password"></input>
-                        </div>
-                        <div class="edit-admin-profile">
-                            <label for="password">Re-Password: </label>
-                            <input type="password" name="password"></input>
-                        </div>
-                        <div class="group">
-                            <button name="update" class="editbtn">UPDATE</a></button>
+                <form action="../controllers/editLoginfo.php" method="post">
+                    <div class="fullname"> User ID : <?= $user['id'] ?></div>
+                    <div class="prfile-flex">
+                        <div class="info-text">
+                            <div class="edit-admin-profile">
+                                <label for="username">Username: </label>
+                                <input type="text" name="username" value="<?= $user['username'] ?>"></input>
+                            </div>
+                            <div class="edit-admin-profile">
+                                <label for="password">New Password: </label>
+                                <input type="password" name="new_password"></input>
+                            </div>
+                            <div class="edit-admin-profile">
+                                <label for="password">Re-Password: </label>
+                                <input type="password" name="re_password"></input>
+                            </div>
+                            <div class="group">
+                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                <button name="update" class="editbtn">UPDATE</a></button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
     </div>

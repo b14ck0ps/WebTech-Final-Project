@@ -56,10 +56,20 @@ function getAlladmin()
     }
     return $student;
 }
-function userUpdate($f_name, $l_name, $gender, $dob,$username, $email, $phone, $address, $profile_picture)
+function userUpdate($f_name, $l_name, $gender, $dob, $username, $email, $phone, $address, $profile_picture)
 {
     global  $conn;
     $sql = "UPDATE admin_info SET f_name = '{$f_name}',l_name = '{$l_name}',gender = '{$gender}',dob = '{$dob}',email = '{$email}',phone = '{$phone}',address = '{$address}',profile_picture = '{$profile_picture}' WHERE username = '{$username}' ";
+    $reg = mysqli_query($conn, $sql);
+    if ($reg) {
+        return true;
+    } else
+        return false;
+}
+function updateLoginfo($username, $password, $id)
+{
+    global  $conn;
+    $sql = "UPDATE admin_info SET username = '{$username}',password = '{$password}' WHERE id = '{$id}' ";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
         return true;
