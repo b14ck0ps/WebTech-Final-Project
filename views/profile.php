@@ -53,6 +53,10 @@ $user = userinfo($_GET['username']);
                             <label for="address">Address: </label>
                             <?= $user['address'] ?>
                         </div>
+                        <div class="admin-profile">
+                            <label for="salary">Salary: </label>
+                            <?= $user['salary'] ?>
+                        </div>
                         <?php
                             if(isset($_GET['msg']) && $_GET['msg'] == 'success'){
                                 echo '<div class="success">Profile updated successfully</div>';
