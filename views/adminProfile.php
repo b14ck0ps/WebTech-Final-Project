@@ -21,32 +21,28 @@ $user = userinfo($_SESSION['username']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
+                <div class="fullname"> User ID : <?= $user['id'] ?></div>
                 <div class="prfile-flex">
                     <div class="info-text">
-                        <div class="admin-profile">
-                            <label for="id">ID: </label>
-                            <?= $user['id'] ?>
-                        </div>
-                        <div class="admin-profile">
+                        <div class="edit-admin-profile">
                             <label for="username">Username: </label>
-                            <?= $user['username'] ?>
+                            <input type="text" name="username" value="<?= $user['username'] ?>"></input>
                         </div>
-                        <div class="admin-profile">
-                            <label for="gender">Gender: </label>
-                            <?= $user['gender'] ?>
+                        <div class="edit-admin-profile">
+                            <label for="password">Old Password: </label>
+                            <input type="password" name="password"></input>
                         </div>
-                        <div class="admin-profile">
-                            <label for="email">Email: </label>
-                            <?= $user['email'] ?>
+                        <div class="edit-admin-profile">
+                            <label for="password">New Password: </label>
+                            <input type="password" name="password"></input>
                         </div>
-                        <div class="admin-profile">
-                            <label for="phone">Phone: </label>
-                            <?= $user['phone'] ?>
+                        <div class="edit-admin-profile">
+                            <label for="password">Re-Password: </label>
+                            <input type="password" name="password"></input>
                         </div>
-                    </div>
-                    <div class="profile-picture">
-                        <img src="https://via.placeholder.com/300" alt="profile picture">
+                        <div class="group">
+                            <button name="update" class="editbtn">UPDATE</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
