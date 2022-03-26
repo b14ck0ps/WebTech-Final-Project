@@ -17,7 +17,7 @@ $currentUser = userinfo($_SESSION['username']);
             </div>
             <div class="nav-item">
                 <p id="welcome">WELCOME </p><a id="profile-link" href="Profile.php?username=<?=$_SESSION['username']?>"><?=strtoupper($currentUser['l_name'])?>, <?=strtoupper($currentUser['f_name'])?></a>
-                <a href="../views/adminProfile.php">SETTING</a>
+                <a href="../views/adminsetting.php">SETTING</a>
                 <a href="../controllers/logout.php">LOGOUT</a>
             </div>
         </div>
