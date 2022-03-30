@@ -1,6 +1,6 @@
 <?php
 if ($_POST['username'] != null && $_POST['new_password'] != null &&  $_POST['re_password'] != null) {
-    require_once('../model/adminModel.php');
+    require_once('../model/usersModel.php');
     if (updateLoginfo(
         $_POST['username'],
         $_POST['new_password'],

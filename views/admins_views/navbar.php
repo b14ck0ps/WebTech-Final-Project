@@ -1,6 +1,6 @@
 <?php
 require_once('../controllers/pageAccess.php');
-require_once('../model/adminModel.php');
+require_once('../model/usersModel.php');
 $currentUser = userinfo($_SESSION['username']);
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $currentUser = userinfo($_SESSION['username']);
             </div>
             <div class="nav-item">
                 <p id="welcome">WELCOME </p><a id="profile-link" href="Profile.php?username=<?=$_SESSION['username']?>"><?=strtoupper($currentUser['l_name'])?>, <?=strtoupper($currentUser['f_name'])?></a>
-                <a href="../views/adminsetting.php">SETTING</a>
+                <a href="setting.php">SETTING</a>
                 <a href="../controllers/logout.php">LOGOUT</a>
             </div>
         </div>

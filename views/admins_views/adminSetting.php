@@ -1,6 +1,6 @@
 <?php
 require_once('../controllers/pageAccess.php');
-require_once('../model/adminModel.php');
+require_once('../model/usersModel.php');
 $user = userinfo($_SESSION['username']);
 ?>
 <!DOCTYPE html>

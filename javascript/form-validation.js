@@ -11,13 +11,18 @@ const reg_form = document.getElementById('registration-form');
 
 //errors
 const f_name_error = document.getElementById('f_name-error');
+const f_name_error_notAlpha = document.getElementById('f_name-error_notAlpha');
+const l_name_error_notAlpha = document.getElementById('l_name-error_notAlpha');
 const l_name_error = document.getElementById('l_name-error');
 const username_error = document.getElementById('username-error');
+const username_error_notAlphaNum = document.getElementById('username-error_notAlphaNum');
 const password_error = document.getElementById('password-error');
 const re_password_error = document.getElementById('re_password-error');
 const re_password_null_error = document.getElementById('re_password_null-error');
 const email_error = document.getElementById('email-error');
+const email_error_invalid = document.getElementById('email-error_invalid');
 const phone_error = document.getElementById('phone-error');
+const phone_error_invalid = document.getElementById('phone-error_invalid');
 const address_error = document.getElementById('address-error');
 
 function required(input, errorId) {
@@ -44,6 +49,7 @@ function matchPass(input, errorId) {
         }
     });
 }
+// NULL ERROR HANDLING
 reg_form.addEventListener('submit', (e) => {
     let ulangth = f_name.value.length;
     let plangth = password.value.length;
@@ -83,6 +89,95 @@ reg_form.addEventListener('submit', (e) => {
         }
     }
 });
+// VALIDATION HANDLING
+let isAllValid = true;
+
+function onlyAlpha(input, errorId) {
+    let isValid = false;
+    input.addEventListener('input', function () {
+        let val = input.value;
+        for (let x = 0; x < val.length; x++) {
+            let ch = val.charAt(x);
+            if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == ' ')) {
+                isAllValid = isValid = false;
+                break;
+            } else
+                isValid = true;
+        }
+        if (!isValid && val.length != 0) {
+            errorId.style.display = "block";
+        } else
+            errorId.style.display = "none";
+    });
+    return isValid;
+}
+
+function onlyAlphaNumeric(input, errorId) {
+    let isValid = false;
+    input.addEventListener('input', function () {
+        let val = input.value;
+        for (let x = 0; x < val.length; x++) {
+            let ch = val.charAt(x);
+            if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'))) {
+                isAllValid = isValid = false;
+                break;
+            } else
+                isValid = true;
+        }
+        if (!isValid && val.length != 0) {
+            errorId.style.display = "block";
+        } else
+            errorId.style.display = "none";
+    });
+    return isValid;
+}
+
+function mailCheck(input, errorId) {
+    let isValid = false;
+    input.addEventListener('input', function () {
+        let val = input.value;
+        if (val.indexOf('@') == -1 || val.indexOf('.') == -1)
+            isAllValid = isValid = false;
+        else
+            isValid = true;
+        if (!isValid && val.length != 0) {
+            errorId.style.display = "block";
+        } else {
+            errorId.style.display = "none";
+        }
+
+    });
+    return isValid;
+}
+
+function phoneChech(input, errorId) {
+    let isValid = false;
+    input.addEventListener('input', function () {
+        let val = input.value;
+        for (let x = 0; x < val.length; x++) {
+            let ch = val.charAt(x);
+            if (!((ch >= '0' && ch <= '9') || (ch == ' ') || (ch == '+') || (ch == '(') || (ch == ')') || (ch == '-')) || val.length > 17) {
+                isAllValid =  isValid = false;
+                break;
+            } else
+                isValid = true;
+        }
+        if (!isValid && val.length != 0) {
+            errorId.style.display = "block";
+        } else
+            errorId.style.display = "none";
+    });
+    return isValid;
+}
+
+function submitCheck() {
+    reg_form.addEventListener('submit', (e) => {
+        if (!isAllValid) {
+            e.preventDefault();
+        }
+    });
+}
+//nul error checking
 required(f_name, f_name_error);
 required(l_name, l_name_error);
 required(username, username_error);
@@ -91,5 +186,17 @@ required(re_rpassword, re_password_null_error);
 required(email, email_error);
 required(phone, phone_error);
 required(address, address_error);
-
+//pass match
 matchPass(re_rpassword, re_password_error);
+
+//only alpha first name
+onlyAlpha(f_name, f_name_error_notAlpha);
+onlyAlpha(l_name, l_name_error_notAlpha);
+//only alpha numeric username
+onlyAlphaNumeric(username, username_error_notAlphaNum);
+// email check
+mailCheck(email, email_error_invalid);
+//phone check
+phoneChech(phone, phone_error_invalid);
+
+submitCheck();

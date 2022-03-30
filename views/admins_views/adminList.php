@@ -15,7 +15,7 @@
             <th>Email</th>
         </tr>
         ";
-            require_once('../model/adminModel.php');
+            require_once('../model/usersModel.php');
             $admins = getAlladmin();
             foreach ($admins as $admin) {
                 echo "

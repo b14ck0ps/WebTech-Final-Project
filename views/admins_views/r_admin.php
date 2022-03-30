@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script src="../javascript/registration-validation.js" defer></script>
+    <script src="../javascript/form-validation.js" defer></script>
 </head>
 <body>
     <div class="reg-container">
@@ -19,10 +19,12 @@
             <div class="group">
                 <input type="f_name" name="f_name" placeholder="First Name">
                 <span class="error" id="f_name-error">The field is required.</span>
+                <span class="error" id="f_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
             </div>
             <div class="group">
                 <input type="l_name" name="l_name" placeholder="Last Name">
                 <span class="error" id="l_name-error">The field is required.</span>
+                <span class="error" id="l_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
             </div>
             <div class="Rgroup reg">
                 <input type="radio" name="gender" value="Male">
@@ -40,6 +42,7 @@
             <div class="group">
                 <input type="username" name="username" placeholder="Username">
                 <span class="error" id="username-error">The field is required.</span>
+                <span class="error" id="username-error_notAlphaNum">Invalid username. Only alphanumeric Allowd</span>
             </div>
             <div class="group ">
                 <input type="password" name="password" placeholder="Password">
@@ -53,10 +56,12 @@
             <div class="group">
                 <input type="email" name="email" placeholder="Email">
                 <span class="error" id="email-error">The field is required.</span>
+                <span class="error" id="email-error_invalid">Invalid E-Mail</span>
             </div>
             <div class="group">
                 <input type="phone" name="phone" placeholder="Phone">
                 <span class="error" id="phone-error">The field is required.</span>
+                <span class="error" id="phone-error_invalid">Invalid phone number</span>
             </div>
             <div class="group">
                 <input type="address" name="address" placeholder="Address">
@@ -66,6 +71,7 @@
                 <input type="file" name="profile_picture">
                 <span class="error" id="file_err">Invalid file formate</span> <!-- not implemented yet -->
             </div>
+            <input type="hidden" name="userType" value="admin">
             <button class="RegBtn" type="submit" name="submit">REGISTATION</button>
         </form>
     </div>

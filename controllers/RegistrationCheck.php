@@ -1,4 +1,7 @@
 <?php
+require_once('../controllers/pageAccess.php');
+require_once('../model/salaryModel.php');
+require_once('../model/usersmodel.php');
 require_once('upload.php');
 if (
     $_POST['f_name'] != null && $_POST['l_name'] != null &&  $_POST['username'] != null
@@ -19,8 +22,9 @@ if (
            //upload fail so use default place holder
        }
     }
-    require_once('../model/adminModel.php');
-    registration(
+    require_once('../model/usersModel.php');
+    if (registration(
+        $_POST['userType'],
         $_POST['f_name'],
         $_POST['l_name'],
         $_POST['gender'],
@@ -31,7 +35,11 @@ if (
         $_POST['phone'],
         $_POST['address'],
         $profile_pic_link
-    );
+    )){
+        $sal = mt_rand (300000*10, 900000*10) / 10;
+        salaryInsert(userinfo($_POST['username'])['id'], $sal);
+        header('location: ../views/Dashboard.php');
+    }
 } else {
     echo "null submission";
 }
