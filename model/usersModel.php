@@ -57,6 +57,8 @@ function getAllusers($userType)
 {
     global $conn;
     $sql = "SELECT * from usersinfo WHERE userType = '{$userType}'";
+    if($userType == 1)
+        $sql = "SELECT * from usersinfo WHERE userType = 'admin' OR userType = 'stuff' OR userType = 'faculty'";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {

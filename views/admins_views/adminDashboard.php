@@ -31,30 +31,27 @@ require_once('../controllers/pageAccess.php');
                         </select>
                     </div>
                 </div>
-                <?php 
-                    if(isset($_GET['userType'])){
-                        if($_GET['userType'] == 'admin'){
-                            $_SESSION['filter'] = 'admin';
-                            include_once('userslist.php');
-                        }
-                        else if($_GET['userType'] == 'stuff'){
-                            $_SESSION['filter'] = 'stuff';
-                            include_once('userslist.php');
-                        }
-                        else if($_GET['userType'] == 'faculty'){
-                            $_SESSION['filter'] = 'faculty';
-                            include_once('userslist.php');
-                        }
-                        else if($_GET['userType'] == 'student'){
-                            $_SESSION['filter'] = 'student';
-                            include_once('userslist.php');
-                        }
-                        else{
-                            echo "<center><h2>'". $_GET['userType'] . "' USERTYPE DOSEN'T EXIST </h2></center>";
-                        }
-                    }else{
+                <?php
+                if (isset($_GET['userType'])) {
+                    if ($_GET['userType'] == 'admin') {
+                        $_SESSION['filter'] = 'admin';
                         include_once('userslist.php');
+                    } else if ($_GET['userType'] == 'stuff') {
+                        $_SESSION['filter'] = 'stuff';
+                        include_once('userslist.php');
+                    } else if ($_GET['userType'] == 'faculty') {
+                        $_SESSION['filter'] = 'faculty';
+                        include_once('userslist.php');
+                    } else if ($_GET['userType'] == 'student') {
+                        $_SESSION['filter'] = 'student';
+                        include_once('userslist.php');
+                    } else {
+                        echo "<center><h2>'" . $_GET['userType'] . "' USERTYPE DOSEN'T EXIST </h2></center>";
                     }
+                } else {
+                    $_SESSION['filter'] = 'admin';
+                    include_once('userslist.php');
+                }
                 ?>
             </div>
         </div>
