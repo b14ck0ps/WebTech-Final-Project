@@ -20,13 +20,13 @@ require_once('../controllers/checkJS.php');
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
                 <?php
-                if (isset($_GET['userType']) && $_GET['userType'] == 'admin') {
-                    require_once('r_admin.php');
+                if (isset($_GET['userType'])) {
+                    require_once('reg-form.php');
                     if (isset($_GET['msg']) && $_GET['msg'] == 'error') {
                         echo "Reg Error";
                     }
                 } else {
-                    echo '<center><h2 style="color: red"> PAGE NEED TO BE CONSTRUCT </h2></center>';
+                    echo '<center><h2 style="color: red"> ERR </h2></center>';
                 }
                 ?>
             </div>
