@@ -55,7 +55,7 @@ $salary = getSalary($user['id']);
                             <label for="address">Address: </label>
                             <?= $user['address'] ?>
                         </div>
-                        <div class="users-profile">
+                        <div class="users-profile <?php if($user['userType']=='student') echo 'hide'?> ">
                             <label for="salary">Salary: </label>
                             <?= $salary['salary'] ?>
                         </div>

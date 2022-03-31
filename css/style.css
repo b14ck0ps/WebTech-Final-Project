@@ -424,7 +424,9 @@ td {
 .upload button:hover{
   background: #05448b;
 }
-
+.hide{
+  display: none;
+}
 
 /* small screen fix */
 #smallScreen {

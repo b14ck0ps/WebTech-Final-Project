@@ -33,7 +33,10 @@ if (
         $_POST['phone'],
         $_POST['address'],
         $profile_pic_link
-    ) && salaryUpdate(userinfo($_POST['username'])['id'], $_POST['salary'] ) ) {
+    )) {
+        if(userinfo($_POST['username'])['userType']!= 'student'){
+            salaryUpdate(userinfo($_POST['username'])['id'], $_POST['salary'] );
+        }
         if ($upload)
             $msg = 'success';
         else

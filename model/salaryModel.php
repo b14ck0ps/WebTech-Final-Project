@@ -8,7 +8,7 @@ function getSalary($id)
     if ($row)
         return $row;
     else
-        echo "Error";
+        return False;
 }
 function salaryInsert($id,$salary)
 {

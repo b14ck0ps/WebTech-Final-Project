@@ -76,9 +76,9 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="phone-error">The field is required.</span>
                                 <span class="error" id="phone-error_invalid">Invalid phone number</span>
                             </div>
-                            <div class="edit-users-profile">
+                            <div class="edit-users-profile <?php if($user['userType']=='student' || $_SESSION['username'] == $user['username']) echo 'hide'?>">
                                 <label for="salary">Salary: </label>
-                                <input type="salary" name="salary" value="<?= $salary['salary'] ?>" <?php if ($_SESSION['username'] == $user['username']) echo 'readonly'; ?>></input>
+                                <input type="salary" name="salary" value="<?= $salary['salary'] ?>"></input>
                             </div>
                             <div>
                                 <span class="error" id="salary-error">The field is required.</span>
