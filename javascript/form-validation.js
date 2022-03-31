@@ -176,7 +176,6 @@ function phoneChech(input, errorId) {
 
 function salaryCheck(input, errorId) {
     let isValid = false;
-    console.log('salary');
     input.addEventListener('input', function () {
         let val = input.value;
         for (let x = 0; x < val.length; x++) {
