@@ -294,34 +294,34 @@ input::placeholder {
 }
 
 /* Table style */
-.student-table, .admin-table {
+.users-table {
   margin: 25px 20px;
 }
 
-.student-table, .admin-table table {
+.users-table table {
   width: 100%;
 }
 
-.student-table, .admin-table th,
+.users-table th,
 td {
   text-align: center;
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.student-table, .admin-table a {
+.users-table a {
   text-decoration: none;
   font-size: 20px;
   color: #5da9ff;
   padding: 8px;
 }
 
-.student-table, .admin-table a:hover {
+.users-table a:hover {
   color: #05448b;
 }
 
 /* USER PROFILE */
-.admin-profile {
+.users-profile {
   width: 200%;
   padding: 5px;
   font-weight: lighter;
@@ -388,14 +388,14 @@ td {
 }
 
 /* EDIT Profile */
-.edit-admin-profile{
+.edit-users-profile{
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid rgb(207, 204, 204);
 }
-.edit-admin-profile input{
+.edit-users-profile input{
   width: 100%;
   padding: 10px;
   border-radius: 5px;
