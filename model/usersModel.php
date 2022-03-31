@@ -53,14 +53,14 @@ function updateLoginfo($username, $password, $id)
     } else
         return false;
 }
-function getAlladmin()
+function getAllusers($userType)
 {
     global $conn;
-    $sql = "SELECT * from usersinfo WHERE userType = 'admin'";
+    $sql = "SELECT * from usersinfo WHERE userType = '{$userType}'";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {
-        $admins[] = $row;
+        $users[] = $row;
     }
-    return $admins;
+    return $users;
 }
