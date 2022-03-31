@@ -10,6 +10,7 @@ $salary = getSalary($user['id']);
 
 <head>
     <script src="../javascript/style.js" defer></script>
+    <script src="../javascript/form-validation.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>user profile</title>
 </head>
@@ -24,17 +25,25 @@ $salary = getSalary($user['id']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <form action="../controllers/editUser_admin.php" method="post" enctype="multipart/form-data">
+                <form id="form" action="../controllers/editUser_admin.php" method="post" enctype="multipart/form-data">
                     <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                     <div class="prfile-flex">
                         <div class="info-text">
                             <div class="edit-admin-profile">
                                 <label for="f_name">First Name: </label>
-                                <input type="text" name="f_name" value="<?= $user['f_name'] ?>"></input>
+                                <input type="f_name" name="f_name" value="<?= $user['f_name'] ?>"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="f_name-error">The field is required.</span>
+                                <span class="error" id="f_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
                             </div>
                             <div class="edit-admin-profile">
                                 <label for="l_name">First Name: </label>
-                                <input type="text" name="l_name" value="<?= $user['l_name'] ?>"></input>
+                                <input type="l_name" name="l_name" value="<?= $user['l_name'] ?>"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="l_name-error">The field is required.</span>
+                                <span class="error" id="l_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
                             </div>
                             <input type="hidden" name="username" value="<?= $user['username'] ?>"></input>
                             <div class="edit-admin-profile edit">
@@ -53,19 +62,27 @@ $salary = getSalary($user['id']);
                             </div>
                             <div class="edit-admin-profile">
                                 <label for="email">Email: </label>
-                                <input type="text" name="email" value="<?= $user['email'] ?>"></input>
+                                <input type="email" name="email" value="<?= $user['email'] ?>"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="email-error">The field is required.</span>
+                                <span class="error" id="email-error_invalid">Invalid E-Mail</span>
                             </div>
                             <div class="edit-admin-profile">
                                 <label for="phone">Phone: </label>
-                                <input type="text" name="phone" value="<?= $user['phone'] ?>"></input>
+                                <input type="phone" name="phone" value="<?= $user['phone'] ?>"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="phone-error">The field is required.</span>
+                                <span class="error" id="phone-error_invalid">Invalid phone number</span>
                             </div>
                             <div class="edit-admin-profile">
                                 <label for="salary">Salary: </label>
-                                <input type="text" name="salary" value="<?= $salary['salary'] ?>" <?php if($_SESSION['username'] == $user['username']) echo 'readonly'; ?>></input>
+                                <input type="salary" name="salary" value="<?= $salary['salary'] ?>" <?php if ($_SESSION['username'] == $user['username']) echo 'readonly'; ?>></input>
                             </div>
                             <div class="edit-admin-profile">
                                 <label for="address">Address: </label>
-                                <input type="text" name="address" value="<?= $user['address'] ?>"></input>
+                                <input type="address" name="address" value="<?= $user['address'] ?>"></input>
                             </div>
                         </div>
                         <div class="profile-picture">
@@ -73,12 +90,12 @@ $salary = getSalary($user['id']);
                             <input type="hidden" name="pre_profile_picture" value="<?= $user['profile_picture'] ?>">
                             <div class="upload">
                                 <input type="file" name="profile_picture" id="">
-                                <button name="update" class="editbtn">Upload</a></button>
+                                <button name="update" class="editbtn">Upload</button>
                             </div>
                         </div>
                     </div>
                     <div class="group">
-                        <button name="update" class="editbtn">UPDATE</a></button>
+                        <button type="submit" name="update" class="editbtn">UPDATE</button>
                     </div>
                 </form>
             </div>
