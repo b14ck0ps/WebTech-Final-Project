@@ -3,12 +3,16 @@ require_once('../controllers/pageAccess.php');
 require_once('../controllers/checkJS.php');
 if ($_GET['userType'] == 'admin')
     $title = 'Admin Registration';
-if ($_GET['userType'] == 'stuff')
+else if ($_GET['userType'] == 'stuff')
     $title = 'Stuff Registration';
-if ($_GET['userType'] == 'faculty')
+else if ($_GET['userType'] == 'faculty')
     $title = 'Faculty Registration';
-if ($_GET['userType'] == 'student')
+else if ($_GET['userType'] == 'student')
     $title = 'Student Registration';
+else {
+    echo "<center><h2 style='color: red'> Error Invalid User type </h2></center>";
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +25,7 @@ if ($_GET['userType'] == 'student')
     <div class="reg-container">
         <form class="reg-form" id="form" method="post" action="../controllers/RegistrationCheck.php" enctype='multipart/form-data'>
             <div class="heading-container">
-                <h2><?=$title?></h2>
+                <h2><?= $title ?></h2>
                 <p>Please Enter All The Necessary Information</p>
                 <?php
                 if (isset($_GET['msg']) && $_GET['msg'] == 'error') {
