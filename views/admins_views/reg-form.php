@@ -1,14 +1,27 @@
+<?php
+require_once('../controllers/pageAccess.php');
+require_once('../controllers/checkJS.php');
+if ($_GET['userType'] == 'admin')
+    $title = 'Admin Registration';
+if ($_GET['userType'] == 'stuff')
+    $title = 'Stuff Registration';
+if ($_GET['userType'] == 'faculty')
+    $title = 'Faculty Registration';
+if ($_GET['userType'] == 'student')
+    $title = 'Student Registration';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <script src="../javascript/form-validation.js" defer></script>
 </head>
+
 <body>
     <div class="reg-container">
-        <form class="reg-form" id="form"  method="post" action="../controllers/RegistrationCheck.php" enctype='multipart/form-data'>
+        <form class="reg-form" id="form" method="post" action="../controllers/RegistrationCheck.php" enctype='multipart/form-data'>
             <div class="heading-container">
-                <h2>Admin Registration</h2>
+                <h2><?=$title?></h2>
                 <p>Please Enter All The Necessary Information</p>
                 <?php
                 if (isset($_GET['msg']) && $_GET['msg'] == 'error') {
@@ -49,7 +62,7 @@
                 <span class="error" id="password-error">The field is required.</span>
             </div>
             <div class="group ">
-                <input type="password" id="re_password"  name="re_password" placeholder="Re-Password">
+                <input type="password" id="re_password" name="re_password" placeholder="Re-Password">
                 <span class="error" id="re_password_null-error">The field is required.</span>
                 <span class="error" id="re_password-error">Password Missmatch</span>
             </div>
@@ -71,7 +84,7 @@
                 <input type="file" name="profile_picture">
                 <span class="error" id="file_err">Invalid file formate</span> <!-- not implemented yet -->
             </div>
-            <input type="hidden" name="userType" value="admin">
+            <input type="hidden" name="userType" value="<?= $_GET['userType'] ?>">
             <button class="RegBtn" type="submit" name="submit">REGISTATION</button>
         </form>
     </div>
