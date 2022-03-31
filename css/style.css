@@ -51,7 +51,8 @@ body {
   font-size: 15px;
 }
 
-.login-form ,.reg-form {
+.login-form,
+.reg-form {
   width: 380px;
   margin: 2em auto;
   padding: 3em 2em 2em 3em;
@@ -119,29 +120,32 @@ input::placeholder {
   border-radius: 2px;
 }
 
-.loginBtn:hover ,.RegBtn:hover {
+.loginBtn:hover,
+.RegBtn:hover {
   background: #094F9F;
 }
 
-.error,.error-user
-{
+.error,
+.error-user {
   color: red;
   font-size: 15px;
 }
-.success{
+
+.success {
   color: green;
   font-size: 15px;
   font-style: italic;
   padding: 5px;
 }
-.error-up{
+
+.error-up {
   color: red;
   font-size: 15px;
   font-style: italic;
   padding: 5px;
 }
-.error
-{
+
+.error {
   display: none;
 }
 
@@ -345,13 +349,15 @@ td {
   display: flex;
   justify-content: space-between;
 }
-.profile-picture img{
+
+.profile-picture img {
   width: 300px;
   height: 300px;
   padding: 10px;
   border-radius: 5%;
 }
-.editbtn{
+
+.editbtn {
 
   background-color: #05448b;
   color: white;
@@ -364,10 +370,12 @@ td {
   font-weight: bold;
   cursor: pointer;
 }
-.editbtn a{
+
+.editbtn a {
   color: white;
   text-decoration: none;
 }
+
 /* REGISTRATION */
 .Rgroup {
   display: flex;
@@ -375,11 +383,13 @@ td {
   align-items: center;
   padding-bottom: 10px;
 }
-.reg{
+
+.reg {
   position: relative;
   left: -25px;
   margin-left: 0px;
 }
+
 .reg input[type="radio"] {
   position: relative;
   left: 20px;
@@ -388,14 +398,15 @@ td {
 }
 
 /* EDIT Profile */
-.edit-users-profile{
+.edit-users-profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid rgb(207, 204, 204);
 }
-.edit-users-profile input{
+
+.edit-users-profile input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -404,30 +415,121 @@ td {
   font-weight: bold;
   margin-left: 20px;
 }
+
 .edit input[type="radio"] {
   position: relative;
   left: 6px;
   margin: 0;
   color: #05448b;
 }
-.upload{
+
+.upload {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.upload button{
+
+.upload button {
   position: relative;
   bottom: 10px;
   right: 10px;
   background: #0c60c0;
 }
-.upload button:hover{
+
+.upload button:hover {
   background: #05448b;
 }
-.hide{
+
+.hide {
   display: none;
 }
 
+/* Management style */
+.userRule button {
+  margin: 5px;
+  background-color: #ffffff;
+  color: #05448b;
+  padding: 5px;
+  border: 1px solid #05448b;
+}
+
+.userRule button:hover {
+  background-color: #05448b;
+  color: #ffffff;
+  border: 1px solid #05448b;
+  cursor: pointer;
+}
+
+.del button {
+  color: red;
+}
+
+.del button:hover {
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+  border: 1px solid red;
+}
+
+/* Stylish POP UP */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 300px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.popup .close:hover {
+  color: #06D85F;
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.active{
+  pointer-events: none;
+  opacity: 0.4;
+}
+.del input{
+  all : unset;
+  background-color: red;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
 /* small screen fix */
 #smallScreen {
   display: none;
