@@ -6,6 +6,7 @@ const password = document.querySelector('input[type="password"]');
 const re_rpassword = document.querySelector('input[id="re_password"]');
 const email = document.querySelector('input[type="email"]');
 const phone = document.querySelector('input[type="phone"]');
+const salary = document.querySelector('input[type="salary"]');
 const address = document.querySelector('input[type="address"]');
 const form = document.getElementById('form');
 
@@ -23,6 +24,7 @@ const email_error = document.getElementById('email-error');
 const email_error_invalid = document.getElementById('email-error_invalid');
 const phone_error = document.getElementById('phone-error');
 const phone_error_invalid = document.getElementById('phone-error_invalid');
+const salary_error_invalid = document.getElementById('salary-error_invalid');
 const address_error = document.getElementById('address-error');
 
 function required(input, errorId) {
@@ -170,6 +172,27 @@ function phoneChech(input, errorId) {
     return isValid;
 }
 
+function salaryCheck(input, errorId) {
+    let isValid = false;
+    console.log('salary');
+    input.addEventListener('input', function () {
+        let val = input.value;
+        for (let x = 0; x < val.length; x++) {
+            let ch = val.charAt(x);
+            if (!((ch >= '0' && ch <= '9'))) {
+                isAllValid = isValid = false;
+                break;
+            } else
+                isAllValid = isValid = true;
+        }
+        if (!isValid && val.length != 0) {
+            errorId.style.display = "block";
+        } else
+            errorId.style.display = "none";
+    });
+    return isValid;
+}
+
 function submitCheck() {
     form.addEventListener('submit', (e) => {
         if (!isAllValid) {
@@ -212,5 +235,7 @@ if (email)
 //phone check
 if (phone)
     phoneChech(phone, phone_error_invalid);
+if (salary)
+    salaryCheck(salary, salary_error_invalid);
 
 submitCheck();

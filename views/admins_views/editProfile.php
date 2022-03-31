@@ -80,6 +80,10 @@ $salary = getSalary($user['id']);
                                 <label for="salary">Salary: </label>
                                 <input type="salary" name="salary" value="<?= $salary['salary'] ?>" <?php if ($_SESSION['username'] == $user['username']) echo 'readonly'; ?>></input>
                             </div>
+                            <div>
+                                <span class="error" id="salary-error">The field is required.</span>
+                                <span class="error" id="salary-error_invalid">Invalid salary</span>
+                            </div>
                             <div class="edit-admin-profile">
                                 <label for="address">Address: </label>
                                 <input type="address" name="address" value="<?= $user['address'] ?>"></input>
