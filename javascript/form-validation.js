@@ -7,7 +7,7 @@ const re_rpassword = document.querySelector('input[id="re_password"]');
 const email = document.querySelector('input[type="email"]');
 const phone = document.querySelector('input[type="phone"]');
 const address = document.querySelector('input[type="address"]');
-const reg_form = document.getElementById('registration-form');
+const form = document.getElementById('form');
 
 //errors
 const f_name_error = document.getElementById('f_name-error');
@@ -50,7 +50,7 @@ function matchPass(input, errorId) {
     });
 }
 // NULL ERROR HANDLING
-reg_form.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) => {
     let ulangth = f_name.value.length;
     let plangth = password.value.length;
     let fnlangth = f_name.value.length;
@@ -102,7 +102,7 @@ function onlyAlpha(input, errorId) {
                 isAllValid = isValid = false;
                 break;
             } else
-                isValid = true;
+                isAllValid = isValid = true;
         }
         if (!isValid && val.length != 0) {
             errorId.style.display = "block";
@@ -122,7 +122,7 @@ function onlyAlphaNumeric(input, errorId) {
                 isAllValid = isValid = false;
                 break;
             } else
-                isValid = true;
+                isAllValid = isValid = true;
         }
         if (!isValid && val.length != 0) {
             errorId.style.display = "block";
@@ -139,7 +139,7 @@ function mailCheck(input, errorId) {
         if (val.indexOf('@') == -1 || val.indexOf('.') == -1)
             isAllValid = isValid = false;
         else
-            isValid = true;
+            isAllValid = isValid = true;
         if (!isValid && val.length != 0) {
             errorId.style.display = "block";
         } else {
@@ -157,10 +157,10 @@ function phoneChech(input, errorId) {
         for (let x = 0; x < val.length; x++) {
             let ch = val.charAt(x);
             if (!((ch >= '0' && ch <= '9') || (ch == ' ') || (ch == '+') || (ch == '(') || (ch == ')') || (ch == '-')) || val.length > 17) {
-                isAllValid =  isValid = false;
+                isAllValid = isValid = false;
                 break;
             } else
-                isValid = true;
+                isAllValid = isValid = true;
         }
         if (!isValid && val.length != 0) {
             errorId.style.display = "block";
@@ -171,32 +171,46 @@ function phoneChech(input, errorId) {
 }
 
 function submitCheck() {
-    reg_form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
         if (!isAllValid) {
             e.preventDefault();
         }
     });
 }
 //nul error checking
-required(f_name, f_name_error);
-required(l_name, l_name_error);
-required(username, username_error);
-required(password, password_error);
-required(re_rpassword, re_password_null_error);
-required(email, email_error);
-required(phone, phone_error);
-required(address, address_error);
+if (f_name)
+    required(f_name, f_name_error);
+if (l_name)
+    required(l_name, l_name_error);
+if (username)
+    required(username, username_error);
+if (password)
+    required(password, password_error);
+if (re_rpassword)
+    required(re_rpassword, re_password_null_error);
+if (email)
+    required(email, email_error);
+if (phone)
+    required(phone, phone_error);
+if (address)
+    required(address, address_error);
 //pass match
-matchPass(re_rpassword, re_password_error);
+if (re_rpassword)
+    matchPass(re_rpassword, re_password_error);
 
 //only alpha first name
-onlyAlpha(f_name, f_name_error_notAlpha);
-onlyAlpha(l_name, l_name_error_notAlpha);
+if (f_name)
+    onlyAlpha(f_name, f_name_error_notAlpha);
+if (l_name)
+    onlyAlpha(l_name, l_name_error_notAlpha);
 //only alpha numeric username
-onlyAlphaNumeric(username, username_error_notAlphaNum);
+if (username)
+    onlyAlphaNumeric(username, username_error_notAlphaNum);
 // email check
-mailCheck(email, email_error_invalid);
+if (email)
+    mailCheck(email, email_error_invalid);
 //phone check
-phoneChech(phone, phone_error_invalid);
+if (phone)
+    phoneChech(phone, phone_error_invalid);
 
 submitCheck();
