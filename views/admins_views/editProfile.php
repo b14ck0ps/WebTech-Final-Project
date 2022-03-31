@@ -29,7 +29,7 @@ $salary = getSalary($user['id']);
                     <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                     <div class="prfile-flex">
                         <div class="info-text">
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="f_name">First Name: </label>
                                 <input type="f_name" name="f_name" value="<?= $user['f_name'] ?>"></input>
                             </div>
@@ -37,7 +37,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="f_name-error">The field is required.</span>
                                 <span class="error" id="f_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="l_name">First Name: </label>
                                 <input type="l_name" name="l_name" value="<?= $user['l_name'] ?>"></input>
                             </div>
@@ -46,7 +46,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="l_name-error_notAlpha">Invalid Name. Only en Alphabets are allowd</span>
                             </div>
                             <input type="hidden" name="username" value="<?= $user['username'] ?>"></input>
-                            <div class="edit-admin-profile edit">
+                            <div class="edit-users-profile edit">
                                 <label for="gender">Gender: </label>
                                 <input type="radio" name="gender" value="Male" <?php if ($user['gender'] == 'Male')  echo ' checked="checked"'; ?>>
                                 <label>Male</label>
@@ -56,11 +56,11 @@ $salary = getSalary($user['id']);
                                 <label>Other</label>
                                 <!-- optional -->
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="dob">Date of Birth: </label>
                                 <input type="date" name="dob" value="<?= $user['dob'] ?>"></input>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="email">Email: </label>
                                 <input type="email" name="email" value="<?= $user['email'] ?>"></input>
                             </div>
@@ -68,7 +68,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="email-error">The field is required.</span>
                                 <span class="error" id="email-error_invalid">Invalid E-Mail</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="phone">Phone: </label>
                                 <input type="phone" name="phone" value="<?= $user['phone'] ?>"></input>
                             </div>
@@ -76,7 +76,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="phone-error">The field is required.</span>
                                 <span class="error" id="phone-error_invalid">Invalid phone number</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="salary">Salary: </label>
                                 <input type="salary" name="salary" value="<?= $salary['salary'] ?>" <?php if ($_SESSION['username'] == $user['username']) echo 'readonly'; ?>></input>
                             </div>
@@ -84,7 +84,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="salary-error">The field is required.</span>
                                 <span class="error" id="salary-error_invalid">Invalid salary</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="address">Address: </label>
                                 <input type="address" name="address" value="<?= $user['address'] ?>"></input>
                             </div>

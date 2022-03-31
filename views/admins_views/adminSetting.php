@@ -26,7 +26,7 @@ $user = userinfo($_SESSION['username']);
                     <div class="fullname"> User ID : <?= $user['id'] ?></div>
                     <div class="prfile-flex">
                         <div class="info-text">
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="username">Username: </label>
                                 <input type="username" name="username" value="<?= $user['username'] ?>"></input>
                             </div>
@@ -34,7 +34,7 @@ $user = userinfo($_SESSION['username']);
                                 <span class="error" id="username-error">The field is required.</span>
                                 <span class="error" id="username-error_notAlphaNum">Invalid Username. Only en Alphabets are allowd</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="password">New Password: </label>
                                 <input type="password" name="new_password"></input>
                             </div>
@@ -42,7 +42,7 @@ $user = userinfo($_SESSION['username']);
                                 <span class="error" id="password-error">The field is required.</span>
                                 <span class="error" id="password-error_notAlpha">Invalid Password. Only en Alphabets are allowd</span>
                             </div>
-                            <div class="edit-admin-profile">
+                            <div class="edit-users-profile">
                                 <label for="password">Re-Password: </label>
                                 <input type="password" name="re_password" id="re_password"></input>
                             </div>

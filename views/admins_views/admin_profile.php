@@ -27,35 +27,35 @@ $salary = getSalary($user['id']);
                 <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                 <div class="prfile-flex">
                     <div class="info-text">
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="id">ID: </label>
                             <?= $user['id'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="username">Username: </label>
                             <?= $user['username'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="gender">Gender: </label>
                             <?= $user['gender'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="dob">Date of Birth: </label>
                             <?= $user['dob'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="email">Email: </label>
                             <?= $user['email'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="phone">Phone: </label>
                             <?= $user['phone'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="address">Address: </label>
                             <?= $user['address'] ?>
                         </div>
-                        <div class="admin-profile">
+                        <div class="users-profile">
                             <label for="salary">Salary: </label>
                             <?= $salary['salary'] ?>
                         </div>
