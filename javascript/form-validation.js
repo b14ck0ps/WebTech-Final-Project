@@ -41,12 +41,14 @@ function required(input, errorId) {
 function matchPass(input, errorId) {
     input.addEventListener('input', function () {
         if (this.value != password.value && this.value.length > 0) {
+            isAllValid = false;
             errorId.style.display = "block";
             if (re_password_null_error.style.display == "block") {
                 errorId.style.display = "none";
             }
         }
         if (this.value == password.value) {
+            isAllValid = true;
             errorId.style.display = "none";
         }
     });
