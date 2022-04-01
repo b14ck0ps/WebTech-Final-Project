@@ -6,7 +6,7 @@ if ($_COOKIE['usertype'] == 'admin')
 else if ($_COOKIE['usertype'] == 'faculty')
     require_once('faculty_views/facultyDashboard.php');
 else if ($_COOKIE['usertype'] == 'stuff')
-    require_once('stuff_views/stuffDashboard.php');
+    require_once('stuff_views/stuff_profile.php');
 else if ($_COOKIE['usertype'] == 'student')
     require_once('student_views/studentDashboard.php');
 else
