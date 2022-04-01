@@ -33,7 +33,7 @@ require_once('../controllers/checkJS.php');
         </div>
     </div>
     </div>
-    <script src="../javascript/style.js"></script>
+    <script src="../javascript/functionality.js"></script>
 </body>
 
 </html>

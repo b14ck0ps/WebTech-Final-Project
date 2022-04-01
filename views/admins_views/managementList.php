@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <script src="../../javascript/functionality.js" defer></script>
+</head>
+
 <body>
     <div class="users-table">
         <?php
@@ -44,7 +48,7 @@
                 . "
                     </div>
                     </td>
-                    <td><div class='userRule del'><a href='#delete'> <button>REMOVE</button> </a></td>
+                    <td><div class='userRule del'><a href='#delete'> <button id=" . $users['id'] . " onClick='getIdbyClick(this)'>REMOVE</button> </a></td>
                 </tr>
                 ";
         }
@@ -53,16 +57,13 @@
             <div class="popup">
                 <h2>DELTE PERMANENTLY</h2>
                 <div class="content">
-                    <form action="" method="post">
-                        <center>
-                            <p>Are you sure you want to delete this user?</p>
-                            <div class="del">
-                                <input type="hidden" name="id" value="id">
-                                <input type="submit" name="delete" value="Yes">
-                            </div>
-                        </center>
-                        <a class="close" href="#">&times;</a>
-                    </form>
+                    <center>
+                        <p>Are you sure you want to delete this user?</p>
+                        <div class="del">
+                            <input type="submit" id="delAcc" value="Yes">
+                        </div>
+                    </center>
+                    <a class="close" href="#">&times;</a>
                 </div>
             </div>
         </div>

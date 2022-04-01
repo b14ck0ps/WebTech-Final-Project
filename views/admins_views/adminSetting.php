@@ -64,7 +64,7 @@ $user = userinfo($_SESSION['username']);
     </div>
     </div>
     </div>
-    <script src="../javascript/style.js"></script>
+    <script src="../javascript/functionality.js"></script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ $salary = getSalary($user['id']);
 <html lang="en">
 
 <head>
-    <script src="../javascript/style.js" defer></script>
+    <script src="../javascript/functionality.js" defer></script>
     <script src="../javascript/form-validation.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>user profile</title>
@@ -76,7 +76,7 @@ $salary = getSalary($user['id']);
                                 <span class="error" id="phone-error">The field is required.</span>
                                 <span class="error" id="phone-error_invalid">Invalid phone number</span>
                             </div>
-                            <div class="edit-users-profile <?php if($user['userType']=='student' || $_SESSION['username'] == $user['username']) echo 'hide'?>">
+                            <div class="edit-users-profile <?php if ($user['userType'] == 'student' || $_SESSION['username'] == $user['username']) echo 'hide' ?>">
                                 <label for="salary">Salary: </label>
                                 <input type="salary" name="salary" value="<?= $salary['salary'] ?>"></input>
                             </div>

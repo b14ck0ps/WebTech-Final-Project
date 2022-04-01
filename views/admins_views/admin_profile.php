@@ -9,7 +9,7 @@ $salary = getSalary($user['id']);
 <html lang="en">
 
 <head>
-    <script src="../javascript/style.js" defer></script>
+    <script src="../javascript/functionality.js" defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>user profile</title>
 </head>
@@ -55,17 +55,17 @@ $salary = getSalary($user['id']);
                             <label for="address">Address: </label>
                             <?= $user['address'] ?>
                         </div>
-                        <div class="users-profile <?php if($user['userType']=='student') echo 'hide'?> ">
+                        <div class="users-profile <?php if ($user['userType'] == 'student') echo 'hide' ?> ">
                             <label for="salary">Salary: </label>
                             <?= $salary['salary'] ?>
                         </div>
                         <?php
-                            if(isset($_GET['msg']) && $_GET['msg'] == 'success'){
-                                echo '<div class="success">Profile updated successfully</div>';
-                            }
-                            if(isset($_GET['msg']) && $_GET['msg'] == 'uploadfail'){
-                                echo '<div class="error-up">Profile Picture failed to upload</div>';
-                            }
+                        if (isset($_GET['msg']) && $_GET['msg'] == 'success') {
+                            echo '<div class="success">Profile updated successfully</div>';
+                        }
+                        if (isset($_GET['msg']) && $_GET['msg'] == 'uploadfail') {
+                            echo '<div class="error-up">Profile Picture failed to upload</div>';
+                        }
                         ?>
                     </div>
                     <div class="profile-picture">
