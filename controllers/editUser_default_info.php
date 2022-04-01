@@ -2,12 +2,15 @@
 require_once('upload.php');
 if (
     $_POST['f_name'] != null && $_POST['l_name'] != null &&  $_POST['username'] != null
-    && $_POST['email'] != null && $_POST['phone'] != null &&  $_POST['address'] != null
+    && $_POST['email'] != null && $_POST['phone'] != null
 ) {
     if (!isset($_POST['gender']))
         $_POST['gender'] = 'N/A';
     if (!isset($_POST['dob']))
         $_POST['dob'] = null;
+    if($_POST['address'] == null){
+        $_POST['address'] = 'N/A';
+    }
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['name'] != '') {
         if (upload($_FILES['profile_picture'], '../assets/usersPicture/', $_POST['username'])) {
             $upload = true;
@@ -34,8 +37,8 @@ if (
         $_POST['address'],
         $profile_pic_link
     )) {
-        if(userinfo($_POST['username'])['userType']!= 'student'){
-            salaryUpdate(userinfo($_POST['username'])['id'], $_POST['salary'] );
+        if (userinfo($_POST['username'])['userType'] != 'student') {
+            salaryUpdate(userinfo($_POST['username'])['id'], $_POST['salary']);
         }
         if ($upload)
             $msg = 'success';
