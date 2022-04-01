@@ -475,7 +475,7 @@ td {
 .overlay {
   position: fixed;
   top: 0;
-  bottom:0;
+  bottom: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -514,12 +514,9 @@ td {
   max-height: 30%;
   overflow: auto;
 }
-.active{
-  pointer-events: none;
-  opacity: 0.4;
-}
-.del input{
-  all : unset;
+
+.del input {
+  all: unset;
   background-color: red;
   color: white;
   padding: 10px 40px;
@@ -530,6 +527,7 @@ td {
   font-weight: bold;
   cursor: pointer;
 }
+
 /* small screen fix */
 #smallScreen {
   display: none;

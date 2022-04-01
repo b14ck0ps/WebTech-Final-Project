@@ -16,7 +16,7 @@
             <th>Username</th>
             <th>Rule</th>
             <th>Email</th>
-            <th>Change Rule</th>
+            <th>Change Rule To</th>
             <th>Action</th>
             
         </tr>
@@ -24,27 +24,27 @@
         require_once('../model/usersModel.php');
         foreach ($users as $users) {
             echo "
-                <tr id=#".$users['id'].">
+                <tr id=#" . $users['id'] . ">
                     <td>{$users['id']}</td>
                     <td><a href='profile.php?username={$users['username']}'>{$users['f_name']}  {$users['l_name']}</a></td>
                     <td>{$users['username']}</td>
                     <td>" . strtoupper($users['userType']) . "</td>
                     <td>{$users['email']}</td>
-                    <td><div class='userRule'><button
-                    ".
-                    ($users['userType'] == 'admin' ? "class='active'" : "")
-                    ."
-                    >ADMIN</button><button
-                    ".
-                    ($users['userType'] == 'stuff' ? "class='active'" : "")
-                    ."
-                    >STUFF</button><button
-                    ".
-                    ($users['userType'] == 'faculty' ? "class='active'" : "")
-                    ."
-                    >FACULTY</button></div></td>
+                    <td>
+                    <div class='userRule'>
+                    " .
+                ($users['userType'] == 'admin' ? "" : "<button>ADMIN</button>")
+                . "
+                    " .
+                ($users['userType'] == 'stuff' ? "" : "<button>STUFF</button>")
+                . "
+                    
+                    " .
+                ($users['userType'] == 'faculty' ? "" : "<button>FACULTY</button>")
+                . "
+                    </div>
+                    </td>
                     <td><div class='userRule del'><a href='#delete'> <button>REMOVE</button> </a></td>
-
                 </tr>
                 ";
         }
