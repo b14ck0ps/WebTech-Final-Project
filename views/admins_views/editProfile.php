@@ -25,7 +25,7 @@ $salary = getSalary($user['id']);
         <div class="main">
             <?php include_once('sideNavbar.html') ?>
             <div class="main-body">
-                <form id="form" action="../controllers/editUser_admin.php" method="post" enctype="multipart/form-data">
+                <form id="form" action="../controllers/editUser_default_info.php" method="post" enctype="multipart/form-data">
                     <div class="fullname"><?= strtoupper($user['l_name']) ?>, <?= strtoupper($user['f_name']) ?></div>
                     <div class="prfile-flex">
                         <div class="info-text">
