@@ -9,9 +9,9 @@ if (
     if (!isset($_POST['dob']))
         $_POST['dob'] = null;
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['name'] != '') {
-        if (upload($_FILES['profile_picture'], '../assets/admins/', $_POST['username'])) {
+        if (upload($_FILES['profile_picture'], '../assets/usersPicture/', $_POST['username'])) {
             $upload = true;
-            $profile_pic_link = '../assets/admins/' . $_POST['username'] . '.jpg';
+            $profile_pic_link = '../assets/usersPicture/' . $_POST['username'] . '.jpg';
         } else {
             $upload = false;
             $profile_pic_link = $_POST['pre_profile_picture'];
