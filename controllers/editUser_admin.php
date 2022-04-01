@@ -21,7 +21,8 @@ if (
         $upload = true;
         $profile_pic_link = $_POST['pre_profile_picture'];
     }
-    require_once('../model/adminModel.php');
+    require_once('../model/usersModel.php');
+    require_once('../model/salaryModel.php');
     if (userUpdate(
         $_POST['f_name'],
         $_POST['l_name'],
@@ -33,6 +34,9 @@ if (
         $_POST['address'],
         $profile_pic_link
     )) {
+        if(userinfo($_POST['username'])['userType']!= 'student'){
+            salaryUpdate(userinfo($_POST['username'])['id'], $_POST['salary'] );
+        }
         if ($upload)
             $msg = 'success';
         else

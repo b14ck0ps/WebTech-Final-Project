@@ -1,3 +1,4 @@
+<?php require_once('../controllers/checkJS.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <html>

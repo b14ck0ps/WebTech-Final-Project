@@ -20,23 +20,18 @@ require_once('../controllers/pageAccess.php');
             <div class="main-body">
                 <div class="content-header">
                     <div class="title">
-                        <level>Account Information</level>
-                    </div>
-                    <div class="filter">
-                        <select name="filter" id="filter">
-                        <option value="admin">Admin</option>
-                            <option value="stuff">Stuff</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="student">Student</option>
-                        </select>
+                        <level>Stuffs Information</level>
                     </div>
                 </div>
-                <?php include_once('adminlist.php') ?>
+                <?php
+                $_SESSION['filter'] = 'allStuffs';
+                include_once('managementList.php');
+                ?>
             </div>
         </div>
     </div>
     </div>
-    <script src="../javascript/style.js"></script>
+    <script src="../javascript/style.js" defer></script>
 </body>
 
 </html>
