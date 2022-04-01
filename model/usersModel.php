@@ -6,7 +6,7 @@ function registration($userType, $f_name, $l_name, $gender, $dob, $username, $pa
     $sql = "INSERT INTO usersinfo  (userType,f_name,l_name,gender,dob,username,password,email,phone,address,profile_picture)  values ('{$userType}','{$f_name}', '{$l_name}', '{$gender}','{$dob}','{$username}','{$password}','{$email}','{$phone}','{$address}','{$profile_picture}')";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
-       return true;
+        return true;
     } else
         return false;
 }
@@ -33,6 +33,17 @@ function userinfo($username)
     else
         echo "Error";
 }
+function userinfobyId($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM usersinfo WHERE id = '{$id}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if ($row)
+        return $row;
+    else
+        return false;
+}
 function userUpdate($f_name, $l_name, $gender, $dob, $username, $email, $phone, $address, $profile_picture)
 {
     global  $conn;
@@ -57,7 +68,7 @@ function getAllusers($userType)
 {
     global $conn;
     $sql = "SELECT * from usersinfo WHERE userType = '{$userType}'";
-    if($userType == 1)
+    if ($userType == 1)
         $sql = "SELECT * from usersinfo WHERE userType = 'admin' OR userType = 'stuff' OR userType = 'faculty'";
     $result = mysqli_query($conn, $sql);
 
@@ -65,4 +76,14 @@ function getAllusers($userType)
         $users[] = $row;
     }
     return $users;
+}
+function deleteUser($id)
+{
+    global $conn;
+    $sql = "DELETE FROM usersinfo WHERE id = '{$id}'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        return true;
+    } else
+        return false;
 }
