@@ -7,10 +7,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         session_start();
         $_SESSION['status'] = true;
         $_SESSION['username'] = $username;
-        if (userinfo($username)['userType'] == 'admin') {
-            setcookie('usertype', userinfo($username)['userType'], time () + 60 * 60 * 24 * 365, "/");
-            header('location: ../views/Dashboard.php');
-        }
+        setcookie('usertype', userinfo($username)['userType'], time () + 60 * 60 * 24 * 365, "/");
+        header('location: ../views/Dashboard.php');
+    
     } else
         header('location: ../views/login.php?msg=error');
 } else
