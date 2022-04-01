@@ -100,6 +100,10 @@ function onlyAlpha(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
+        if(val == ''){
+            isAllValid = false;
+            return isAllValid;
+        }
         for (let x = 0; x < val.length; x++) {
             let ch = val.charAt(x);
             if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == ' ')) {
@@ -140,6 +144,10 @@ function mailCheck(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
+        if(val == ''){
+            isAllValid = false;
+            return isAllValid;
+        }
         if (val.indexOf('@') == -1 || val.indexOf('.') == -1)
             isAllValid = isValid = false;
         else
@@ -158,6 +166,10 @@ function phoneChech(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
+        if(val == ''){
+            isAllValid = false;
+            return isAllValid;
+        }
         for (let x = 0; x < val.length; x++) {
             let ch = val.charAt(x);
             if (!((ch >= '0' && ch <= '9') || (ch == ' ') || (ch == '+') || (ch == '(') || (ch == ')') || (ch == '-')) || val.length > 17) {
@@ -178,6 +190,10 @@ function salaryCheck(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
+        if(val == ''){
+            isAllValid = false;
+            return isAllValid;
+        }
         for (let x = 0; x < val.length; x++) {
             let ch = val.charAt(x);
             if (!((ch >= '0' && ch <= '9'))) {
