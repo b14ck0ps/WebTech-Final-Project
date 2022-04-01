@@ -1,9 +1,11 @@
 window.onload = function () {
     const filter = document.getElementById('filter');
-    filter.addEventListener('change', function () {
-        var url = 'Dashboard.php?userType=' + filter.value;
-        window.location.href = url;
-    });
+    if (filter) {
+        filter.addEventListener('change', function () {
+            var url = 'Dashboard.php?userType=' + filter.value;
+            window.location.href = url;
+        });
+    }
 };
 
 function showItems() {
