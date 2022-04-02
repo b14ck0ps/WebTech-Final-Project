@@ -1,15 +1,18 @@
 <?php
 require_once('../model/usersmodel.php');
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && isset(userinfobyId($_GET['id'])['username'])) {
     require_once('../model/usersModel.php');
-    $picture = userinfobyId($_GET['id'])['username'];
+    if (userinfobyId($_GET['id'])['username'])
+        $picture = userinfobyId($_GET['id'])['username'];
+    $def = userinfobyId($_GET['id'])['profile_picture'];
     if (deleteUser($_GET['id'])) {
-        if (unlink("../assets/usersPicture/" . $picture  . ".jpg")) {
-            header("Refresh:0; url=../views/userManagement.php");
-        }
+        header("refresh:0 url= ../views/userManagement.php");
+        header("location: ../views/userManagement.php");
+        if ($def != '../assets/default/profile_picture.jpg')
+            unlink("../assets/usersPicture/" . $picture  . ".jpg");
     } else {
         echo 'something went worng';
     }
 } else {
-    echo "error";
+    header("location: ../views/userManagement.php");
 }
