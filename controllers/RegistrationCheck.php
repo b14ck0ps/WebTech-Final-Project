@@ -5,12 +5,13 @@ require_once('../model/usersmodel.php');
 require_once('upload.php');
 if (
     $_POST['f_name'] != null && $_POST['l_name'] != null &&  $_POST['username'] != null
-    && $_POST['password'] != null && $_POST['email'] != null && $_POST['phone'] != null &&  $_POST['address'] != null
+    && $_POST['password'] != null && $_POST['email'] != null && $_POST['phone'] != null
 ) {
     if (!isset($_POST['gender']))
         $_POST['gender'] = 'N/A';
-    if (!isset($_POST['gender']))
-        $_POST['dob'] = 'N/A';
+    if ($_POST['address'] == null) {
+        $_POST['address'] = 'N/A';
+    }
     if (!isset($_FILES['profile_picture']) || $_FILES['profile_picture']['name'] == '')
         $profile_pic_link = '../assets/default/profile_picture.jpg';
     else {
@@ -38,7 +39,7 @@ if (
         if ($_POST['userType'] != 'student') {
             $sal = mt_rand(300000 * 10, 900000 * 10) / 10;
             salaryInsert(userinfo($_POST['username'])['id'], $sal);
-        }{
+        } {
             //Inster student's initial data.. like -> depertment , subject , balance , etc..
         }
         header('location: ../views/Dashboard.php');
