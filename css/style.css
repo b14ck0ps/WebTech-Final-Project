@@ -528,6 +528,10 @@ td {
   cursor: pointer;
 }
 
+#u-cng a {
+  all: unset;
+}
+
 /* small screen fix */
 #smallScreen {
   display: none;
