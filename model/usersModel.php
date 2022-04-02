@@ -87,3 +87,13 @@ function deleteUser($id)
     } else
         return false;
 }
+function changeUserRule($id, $newrule)
+{
+    global  $conn;
+    $sql = "UPDATE usersinfo SET userType = '{$newrule}' WHERE id = '{$id}' ";
+    $reg = mysqli_query($conn, $sql);
+    if ($reg) {
+        return true;
+    } else
+        return false;
+}
