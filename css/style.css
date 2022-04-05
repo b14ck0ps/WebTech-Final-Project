@@ -512,7 +512,7 @@ td {
   position: relative;
 }
 
-.popup,
+.popup .close,
 .popupFin .close {
   position: absolute;
   top: 20px;
@@ -522,7 +522,7 @@ td {
   text-decoration: none;
 }
 
-.popup,
+.popup .close:hover,
 .popupFin .close:hover {
   color: #06D85F;
 }
