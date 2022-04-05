@@ -27,6 +27,8 @@
         ";
         require_once('../model/usersModel.php');
         foreach ($users as $users) {
+            if ($users['username'] == $_SESSION['username'])
+                continue;  // skip the current user
             echo "
                 <tr id=#" . $users['id'] . ">
                     <td>{$users['id']}</td>
