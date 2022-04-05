@@ -560,6 +560,93 @@ td {
   border-bottom: #ddd 1px solid;
 }
 
+/* Notice board style */
+.notice-board {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  border: #ddd 1px solid;
+  background-color: #f2f2f2;
+}
+
+.notice-board h1 {
+  color: #05448b;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 25px;
+}
+
+.notice-board p {
+  color: black;
+  font-size: 20px;
+}
+
+.notice-board .n-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 15px;
+}
+
+.notice-board .author {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.notice-board .n-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#n-edit,
+#n-del {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#n-edit {
+  background-color: #05448b;
+  color: white;
+}
+
+#n-del {
+  background-color: red;
+  color: white;
+}
+
+.notice-board .author p {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #0c60c0;
+}
+
+.notice-board .n-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-notice-button button {
+  background-color: #05448b;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-notice-button button:hover {
+  background-color: #0c60c0;
+}
+
 /* small screen fix */
 #smallScreen {
   display: none;
