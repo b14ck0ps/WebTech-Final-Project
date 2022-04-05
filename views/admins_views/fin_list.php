@@ -50,7 +50,7 @@
                 ";
         }
         ?>
-        <div id="delete" class="overlay">
+        <div id="delete" class="deleteOverlay">
             <div class="popup">
                 <h2>DELTE PERMANENTLY</h2>
                 <div class="content">
