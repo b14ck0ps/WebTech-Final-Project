@@ -1,9 +1,9 @@
 <?php
 require_once('../controllers/database.php');
-function registration($userType, $f_name, $l_name, $gender, $dob, $username, $password, $email, $phone, $address, $profile_picture)
+function registration($userType, $f_name, $l_name, $gender, $dob, $username, $password, $email, $phone, $address)
 {
     global  $conn;
-    $sql = "INSERT INTO usersinfo  (userType,f_name,l_name,gender,dob,username,password,email,phone,address,profile_picture)  values ('{$userType}','{$f_name}', '{$l_name}', '{$gender}','{$dob}','{$username}','{$password}','{$email}','{$phone}','{$address}','{$profile_picture}')";
+    $sql = "INSERT INTO usersinfo  (userType,f_name,l_name,gender,dob,username,password,email,phone,address)  values ('{$userType}','{$f_name}', '{$l_name}', '{$gender}','{$dob}','{$username}','{$password}','{$email}','{$phone}','{$address}')";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
         return true;
@@ -44,10 +44,10 @@ function userinfobyId($id)
     else
         return false;
 }
-function userUpdate($f_name, $l_name, $gender, $dob, $username, $email, $phone, $address, $profile_picture)
+function userUpdate($f_name, $l_name, $gender, $dob, $username, $email, $phone, $address)
 {
     global  $conn;
-    $sql = "UPDATE usersinfo SET f_name = '{$f_name}',l_name = '{$l_name}',gender = '{$gender}',dob = '{$dob}',email = '{$email}',phone = '{$phone}',address = '{$address}',profile_picture = '{$profile_picture}' WHERE username = '{$username}' ";
+    $sql = "UPDATE usersinfo SET f_name = '{$f_name}',l_name = '{$l_name}',gender = '{$gender}',dob = '{$dob}',email = '{$email}',phone = '{$phone}',address = '{$address}' WHERE username = '{$username}' ";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
         return true;
@@ -91,6 +91,16 @@ function changeUserRule($id, $newrule)
 {
     global  $conn;
     $sql = "UPDATE usersinfo SET userType = '{$newrule}' WHERE id = '{$id}' ";
+    $reg = mysqli_query($conn, $sql);
+    if ($reg) {
+        return true;
+    } else
+        return false;
+}
+function updateProfilePicture($id, $profile_picture)
+{
+    global  $conn;
+    $sql = "UPDATE usersinfo SET profile_picture = '{$profile_picture}' WHERE id = '{$id}' ";
     $reg = mysqli_query($conn, $sql);
     if ($reg) {
         return true;
