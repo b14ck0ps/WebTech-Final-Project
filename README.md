@@ -24,4 +24,3 @@
 * [XAMPP](https://www.apachefriends.org/index.html)
 
 Database MYSQL backup file [LINK](https://gist.github.com/b14ck0ps/28915ab8955a5ca60e7a6c50a886065d)
-RAW Database MYSQL [LINK](https://gist.github.com/b14ck0ps/f5b7743417145d24874e32d59b537e21)
