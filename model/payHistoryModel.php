@@ -6,11 +6,10 @@ function getFinInfo($id)
     global $conn;
     $sql = "SELECT * from payment_history WHERE id = '{$id}'";
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if ($row)
-        return $row;
-    else
-        return False;
+    while ($row = mysqli_fetch_assoc($result)) {
+        $info[] = $row;
+    }
+    return $info;
 }
 function finInfoInsert($id, $amount)
 {

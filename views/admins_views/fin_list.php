@@ -28,38 +28,58 @@
         require_once('../model/payHistoryModel.php');
         foreach ($users as $user) {
             $dept = getDept($user['id'])['dept'];
-            $status = getFinInfo($user['id'])['status'];
+            $status = strtoupper(getFinInfo($user['id'])[0]['status']);
             echo "
                 <tr id=#" . $user['id'] . ">
                     <td>{$user['id']}</td>
-                    <td><a href='#financials'>{$user['f_name']}  {$user['l_name']}</a></td>
+                    <td><a href='../controllers/getStudentPayHistory.php?id={$user['id']}'>{$user['f_name']}  {$user['l_name']}</a></td>
                     <td>{$dept}</td>
-                    <td>{$status}</td>
-                    <td>{$user['email']}</td>
+                    <td " . (($status == 'ACTIVE') ? 'id=s-status-A' : 'id=s-status-I') . ">" . $status . "</td>" .
+                "<td>{$user['email']}</td>
                     <td>
                     <div class='userRule'>
                     " .
-                ($status == 'active' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=active'>ACTIVE</a></button>")
+                ($status == 'ACTIVE' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=active'>ACTIVE</a></button>")
                 . "
                     " .
-                ($status == 'inactive' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=inactive'>INACTIVE</a></button>")
+                ($status == 'INACTIVE' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=inactive'>INACTIVE</a></button>")
                 . "
                     </div>
                     </td>
                 </tr>
                 ";
         }
+        echo '</table>';
         ?>
-        <div id="delete" class="deleteOverlay">
-            <div class="popup">
-                <h2>DELTE PERMANENTLY</h2>
+        <div id="financials" class="finOverlay">
+            <div class="popupFin">
+                <?php
+                if (isset($_SESSION['studentFin'])) {
+                    $student = userinfobyId($_SESSION['studentFin'][0]['id']);
+                    $studentFinInfo = $_SESSION['studentFin'];
+                }
+
+                echo "<h2>{$student['f_name']}  {$student['l_name']}'s &ensp; Financial Info</h2>"
+                ?>
                 <div class="content">
-                    <center>
-                        <p>Are you sure you want to delete this user?</p>
-                        <div class="del">
-                            <input type="submit" id="delAcc" value="Yes">
-                        </div>
-                    </center>
+                    <div class="finTable">
+                        <?php
+                        echo "<table>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount Paid</th>
+                            </tr>
+                        ";
+                        foreach ($studentFinInfo as $info) {
+                            echo "
+                            <tr>
+                                <td>{$info['date']}</td>
+                                <td>{$info['amount']}</td>
+                            </tr>";
+                        }
+                        echo "</table>";
+                        ?>
+                    </div>
                     <a class="close" href="#">&times;</a>
                 </div>
             </div>
