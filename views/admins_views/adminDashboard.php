@@ -37,6 +37,7 @@ require_once('../controllers/pageAccess.php');
     </div>
     </div>
     <script src="../javascript/functionality.js" defer></script>
+    <script src="../javascript/ajax.js" defer></script>
 </body>
 
 </html>
