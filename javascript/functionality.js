@@ -23,8 +23,10 @@ window.onload = function () {
     const filter = document.getElementById('filter');
     if (filter) {
         filter.addEventListener('change', function () {
-            var url = 'Dashboard.php?userType=' + filter.value;
-            window.location.href = url;
+            console.log(filter.value);
+            load('admins_views/usersList.php', 'filter=' + filter.value, function (http) {
+                document.getElementById('userTable').innerHTML = http.responseText;
+            });
         });
     }
     const del = document.getElementById('delAcc');

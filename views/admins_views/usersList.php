@@ -4,7 +4,13 @@
 <body>
     <div class="users-table">
         <?php
-        $users = getAllusers($_SESSION['filter']);
+        if (!isset($_POST['filter'])) {
+            require_once('../model/usersModel.php');
+            $users = getAllusers('admin');
+        } else {
+            require_once('../../model/usersModel.php');
+            $users = getAllusers($_POST['filter']);
+        }
         echo "
         <table>
         <tr>
@@ -14,7 +20,6 @@
             <th>Email</th>
         </tr>
         ";
-        require_once('../model/usersModel.php');
         foreach ($users as $users) {
             echo "
                 <tr>

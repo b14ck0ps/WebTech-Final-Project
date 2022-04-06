@@ -1,5 +1,8 @@
 <?php
-require_once('../controllers/database.php');
+$conn = mysqli_connect("localhost", "root", "", "portal");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 function registration($userType, $f_name, $l_name, $gender, $dob, $username, $password, $email, $phone, $address)
 {
     global  $conn;
