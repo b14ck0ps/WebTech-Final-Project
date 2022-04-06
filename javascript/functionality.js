@@ -23,7 +23,6 @@ window.onload = function () {
     const filter = document.getElementById('filter');
     if (filter) {
         filter.addEventListener('change', function () {
-            console.log(filter.value);
             load('admins_views/usersList.php', 'filter=' + filter.value, function (http) {
                 document.getElementById('userTable').innerHTML = http.responseText;
             });
@@ -32,8 +31,9 @@ window.onload = function () {
     const del = document.getElementById('delAcc');
     if (del) {
         del.addEventListener('click', function () {
-            var url = '../controllers/Delete.php?id=' + userId;
-            window.location.href = url;
+            load('../controllers/Delete.php', 'id=' + userId, function (http) {
+                document.getElementById('infoTable').innerHTML = http.responseText;
+            });
         });
     }
 

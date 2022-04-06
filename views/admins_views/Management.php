@@ -23,10 +23,9 @@ require_once('../controllers/pageAccess.php');
                         <level>Stuffs Information</level>
                     </div>
                 </div>
-                <?php
-                $_SESSION['filter'] = 'allStuffs';
-                include_once('managementList.php');
-                ?>
+                <div id="infoTable">
+                    <?php include_once('managementList.php'); ?>
+                </div>
             </div>
         </div>
     </div>

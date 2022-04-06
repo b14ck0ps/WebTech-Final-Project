@@ -1,17 +1,17 @@
+<?php error_reporting(E_ERROR | E_PARSE); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script src="../../javascript/functionality.js" defer></script>
+
 </head>
 
 <body>
     <div class="users-table">
         <?php
-        if ($_SESSION['filter'] == 'allStuffs')
-            $users = getAllusers(1);
-        else
-            $users = getAllusers($_SESSION['filter']);
+        include_once('../model/usersModel.php');
+        include_once('../../model/usersModel.php');
+        $users = getAllusers(1);
         echo "
         <table>
         <tr>
@@ -25,7 +25,7 @@
             
         </tr>
         ";
-        require_once('../model/usersModel.php');
+        session_start();
         foreach ($users as $users) {
             if ($users['username'] == $_SESSION['username'])
                 continue;  // skip the current user
@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    <script src="../../javascript/functionality.js"></script>
 </body>
 
 </html>
