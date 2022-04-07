@@ -23,6 +23,12 @@ window.onload = function () {
             });
         });
     }
-
+    const s_fin = document.getElementById('student-fin');
+    s_fin.addEventListener("click", function (evt) {
+        var id = evt.target.id;
+        load('../controllers/getStudentPayHistory.php', 'id=' + parseInt(id), function (http) {
+            document.getElementById('paytable').innerHTML = http.responseText;
+        })
+    });
 };
 document.getElementById("smallScreen").innerHTML = ("<h1><strong> SCREEN IS TOO SMALL <br> MOBILE VERSION IS NOT SUPPORTED </strong><h1>");

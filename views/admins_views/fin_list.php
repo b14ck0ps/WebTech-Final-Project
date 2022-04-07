@@ -13,7 +13,7 @@
         else
             $users = getAllusers($_SESSION['filter']);
         echo "
-        <table>
+        <table id='student-fin'>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -32,7 +32,7 @@
             echo "
                 <tr id=#" . $user['id'] . ">
                     <td>{$user['id']}</td>
-                    <td><a href='../controllers/getStudentPayHistory.php?id={$user['id']}'>{$user['f_name']}  {$user['l_name']}</a></td>
+                    <td><a id='{$user['id']}' href='#financials'>{$user['f_name']}  {$user['l_name']}</a></td>
                     <td>{$dept}</td>
                     <td " . (($status == 'ACTIVE') ? 'id=s-status-A' : 'id=s-status-I') . ">" . $status . "</td>" .
                 "<td>{$user['email']}</td>
@@ -53,33 +53,9 @@
         ?>
         <div id="financials" class="finOverlay">
             <div class="popupFin">
-                <?php
-                if (isset($_SESSION['studentFin'])) {
-                    $student = userinfobyId($_SESSION['studentFin'][0]['id']);
-                    $studentFinInfo = $_SESSION['studentFin'];
-                }
-
-                echo "<h2>{$student['f_name']}  {$student['l_name']}'s &ensp; Financial Info</h2>"
-                ?>
+                <h2>Payment History </h2>
                 <div class="content">
-                    <div class="finTable">
-                        <?php
-                        echo "<table>
-                            <tr>
-                                <th>Date</th>
-                                <th>Amount Paid</th>
-                            </tr>
-                        ";
-                        foreach ($studentFinInfo as $info) {
-                            echo "
-                            <tr>
-                                <td>{$info['date']}</td>
-                                <td>{$info['amount']}</td>
-                            </tr>";
-                        }
-                        echo "</table>";
-                        ?>
-                    </div>
+                    <div id="paytable"></div>
                     <a class="close" href="#">&times;</a>
                 </div>
             </div>
