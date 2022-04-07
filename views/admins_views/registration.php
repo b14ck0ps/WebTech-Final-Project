@@ -34,6 +34,7 @@ require_once('../controllers/checkJS.php');
     </div>
     </div>
     <script src="../javascript/functionality.js"></script>
+    <script src="../javascript/ajax.js"></script>
 </body>
 
 </html>

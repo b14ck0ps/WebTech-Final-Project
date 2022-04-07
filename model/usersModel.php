@@ -34,7 +34,7 @@ function userinfo($username)
     if ($row)
         return $row;
     else
-        echo "Error";
+        echo false;
 }
 function userinfobyId($id)
 {
