@@ -4,7 +4,7 @@ function showItems() {
 userId = undefined;
 
 function getIdbyClick(clicked_btn) {
-    userId = parseInt(clicked_btn.id);
+    userId = clicked_btn.id;
 }
 window.onload = function () {
     const filter = document.getElementById('filter');
@@ -18,8 +18,8 @@ window.onload = function () {
     const del = document.getElementById('delAcc');
     if (del) {
         del.addEventListener('click', function () {
-            load('../controllers/Delete.php', 'id=' + userId, function (http) {
-                document.getElementById('infoTable').innerHTML = http.responseText;
+            load('../controllers/Delete.php', 'id=' + parseInt(userId), function (http) {
+                document.getElementById(userId).parentElement.parentElement.parentElement.parentElement.remove();
             });
         });
     }

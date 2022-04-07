@@ -62,7 +62,7 @@
                     <center>
                         <p>Are you sure you want to delete this user?</p>
                         <div class="del">
-                            <input type="submit" id="delAcc" value="Yes">
+                            <a href="#"><input type="submit" id="delAcc" value="Yes"></a>
                         </div>
                     </center>
                     <a class="close" href="#">&times;</a>
