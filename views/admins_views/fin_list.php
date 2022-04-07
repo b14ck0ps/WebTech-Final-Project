@@ -39,10 +39,10 @@
                     <td>
                     <div class='userRule'>
                     " .
-                ($status == 'ACTIVE' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=active'>ACTIVE</a></button>")
+                ($status == 'ACTIVE' ? "" : "<button class='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=active'>ACTIVE</a></button>")
                 . "
                     " .
-                ($status == 'INACTIVE' ? "" : "<button id='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=inactive'>INACTIVE</a></button>")
+                ($status == 'INACTIVE' ? "" : "<button class='u-cng'><a href='../controllers/changeStudentStatus.php?id={$user['id']}&status=inactive'>INACTIVE</a></button>")
                 . "
                     </div>
                     </td>
