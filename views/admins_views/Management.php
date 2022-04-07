@@ -23,15 +23,15 @@ require_once('../controllers/pageAccess.php');
                         <level>Stuffs Information</level>
                     </div>
                 </div>
-                <?php
-                $_SESSION['filter'] = 'allStuffs';
-                include_once('managementList.php');
-                ?>
+                <div id="infoTable">
+                    <?php include_once('managementList.php'); ?>
+                </div>
             </div>
         </div>
     </div>
     </div>
     <script src="../javascript/functionality.js" defer></script>
+    <script src="../javascript/ajax.js" defer></script>
 </body>
 
 </html>

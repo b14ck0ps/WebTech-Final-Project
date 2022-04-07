@@ -16,6 +16,7 @@ const f_name_error_notAlpha = document.getElementById('f_name-error_notAlpha');
 const l_name_error_notAlpha = document.getElementById('l_name-error_notAlpha');
 const l_name_error = document.getElementById('l_name-error');
 const username_error = document.getElementById('username-error');
+const username_error_notAvailable = document.getElementById('username-error_notAvailable');
 const username_error_notAlphaNum = document.getElementById('username-error_notAlphaNum');
 const password_error = document.getElementById('password-error');
 const re_password_error = document.getElementById('re_password-error');
@@ -100,7 +101,7 @@ function onlyAlpha(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
-        if(val == ''){
+        if (val == '') {
             isAllValid = false;
             return isAllValid;
         }
@@ -144,7 +145,7 @@ function mailCheck(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
-        if(val == ''){
+        if (val == '') {
             isAllValid = false;
             return isAllValid;
         }
@@ -166,7 +167,7 @@ function phoneChech(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
-        if(val == ''){
+        if (val == '') {
             isAllValid = false;
             return isAllValid;
         }
@@ -190,7 +191,7 @@ function salaryCheck(input, errorId) {
     let isValid = false;
     input.addEventListener('input', function () {
         let val = input.value;
-        if(val == ''){
+        if (val == '') {
             isAllValid = false;
             return isAllValid;
         }
@@ -209,6 +210,25 @@ function salaryCheck(input, errorId) {
     });
     return isValid;
 }
+//AJAX - Check Username
+function checkUsername() {
+    let isValid = false;
+    username.addEventListener('input', function () {
+        let chkUname = username.value;
+        load('../controllers/checkUsername.php', 'username=' + chkUname, function (response) {
+            if (response.responseText == 'false' && chkUname.length != 0) {
+                console.log(response);
+                isAllValid = isValid = false;
+                username_error_notAvailable.style.display = "block";
+            }
+            if (response.responseText == 'true') {
+                console.log(response);
+                isAllValid = isValid = true;
+                username_error_notAvailable.style.display = "none";
+            }
+        });
+    })
+}
 
 function submitCheck() {
     form.addEventListener('submit', (e) => {
@@ -222,8 +242,10 @@ if (f_name)
     required(f_name, f_name_error);
 if (l_name)
     required(l_name, l_name_error);
-if (username)
+if (username) {
     required(username, username_error);
+    checkUsername();
+}
 if (password)
     required(password, password_error);
 if (re_rpassword)

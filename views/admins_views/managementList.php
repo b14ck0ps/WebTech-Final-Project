@@ -1,17 +1,17 @@
+<?php error_reporting(E_ERROR | E_PARSE); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script src="../../javascript/functionality.js" defer></script>
+
 </head>
 
 <body>
     <div class="users-table">
         <?php
-        if ($_SESSION['filter'] == 'allStuffs')
-            $users = getAllusers(1);
-        else
-            $users = getAllusers($_SESSION['filter']);
+        include_once('../model/usersModel.php');
+        include_once('../../model/usersModel.php');
+        $users = getAllusers(1);
         echo "
         <table>
         <tr>
@@ -25,7 +25,7 @@
             
         </tr>
         ";
-        require_once('../model/usersModel.php');
+        session_start();
         foreach ($users as $users) {
             if ($users['username'] == $_SESSION['username'])
                 continue;  // skip the current user
@@ -39,14 +39,14 @@
                     <td>
                     <div class='userRule'>
                     " .
-                ($users['userType'] == 'admin' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=admin'>ADMIN</a></button>")
+                ($users['userType'] == 'admin' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=admin'>ADMIN</a></button>")
                 . "
                     " .
-                ($users['userType'] == 'stuff' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=stuff'>STUFF</a></button>")
+                ($users['userType'] == 'stuff' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=stuff'>STUFF</a></button>")
                 . "
                     
                     " .
-                ($users['userType'] == 'faculty' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=faculty'>FACULTY</a></button>")
+                ($users['userType'] == 'faculty' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=faculty'>FACULTY</a></button>")
                 . "
                     </div>
                     </td>
@@ -62,7 +62,7 @@
                     <center>
                         <p>Are you sure you want to delete this user?</p>
                         <div class="del">
-                            <input type="submit" id="delAcc" value="Yes">
+                            <a href="#"><input type="submit" id="delAcc" value="Yes"></a>
                         </div>
                     </center>
                     <a class="close" href="#">&times;</a>
@@ -70,6 +70,7 @@
             </div>
         </div>
     </div>
+    <script src="../../javascript/functionality.js"></script>
 </body>
 
 </html>
