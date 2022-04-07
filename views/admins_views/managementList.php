@@ -39,14 +39,14 @@
                     <td>
                     <div class='userRule'>
                     " .
-                ($users['userType'] == 'admin' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=admin'>ADMIN</a></button>")
+                ($users['userType'] == 'admin' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=admin'>ADMIN</a></button>")
                 . "
                     " .
-                ($users['userType'] == 'stuff' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=stuff'>STUFF</a></button>")
+                ($users['userType'] == 'stuff' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=stuff'>STUFF</a></button>")
                 . "
                     
                     " .
-                ($users['userType'] == 'faculty' ? "" : "<button id='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=faculty'>FACULTY</a></button>")
+                ($users['userType'] == 'faculty' ? "" : "<button class='u-cng'><a href='../controllers/changeUserRule.php?id={$users['id']}&newRule=faculty'>FACULTY</a></button>")
                 . "
                     </div>
                     </td>

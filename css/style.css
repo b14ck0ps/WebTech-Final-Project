@@ -545,7 +545,11 @@ td {
   cursor: pointer;
 }
 
-#u-cng a {
+.u-cng a {
+  all: unset;
+}
+
+.u-cng a:hover {
   all: unset;
 }
 
