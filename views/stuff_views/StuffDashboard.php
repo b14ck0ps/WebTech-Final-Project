@@ -6,11 +6,10 @@ require_once('../controllers/pageAccess.php');
 
 <head>
     <link rel="stylesheet" href="../css/style.css">
-    <title>Stuff_index</title>
+    <title>Index</title>
 </head>
 
 <body>
-
     <div id="smallScreen"></div>
     <div class="desktop">
         <div class="container">
@@ -25,38 +24,18 @@ require_once('../controllers/pageAccess.php');
                     </div>
                     <div class="filter">
                         <select name="filter" id="filter">
-                            <option value="faculty" <?php if (isset($_GET['userType']) && $_GET['userType'] == 'faculty')  echo ' selected'; ?>>Faculty</option>
-                            <option value="student" <?php if (isset($_GET['userType']) && $_GET['userType'] == 'student')  echo ' selected'; ?>>Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="student">Student</option>
                         </select>
                     </div>
                 </div>
-                <?php
-                if (isset($_GET['userType'])) {
-                    if ($_GET['userType'] == 'admin') {
-                        $_SESSION['filter'] = 'admin';
-                        include_once('userslist.php');
-                    } else if ($_GET['userType'] == 'stuff') {
-                        $_SESSION['filter'] = 'stuff';
-                        include_once('userslist.php');
-                    } else if ($_GET['userType'] == 'faculty') {
-                        $_SESSION['filter'] = 'faculty';
-                        include_once('userslist.php');
-                    } else if ($_GET['userType'] == 'student') {
-                        $_SESSION['filter'] = 'student';
-                        include_once('userslist.php');
-                    } else {
-                        echo "<center><h2>'" . $_GET['userType'] . "' USERTYPE DOSEN'T EXIST </h2></center>";
-                    }
-                } else {
-                    $_SESSION['filter'] = 'faculty';
-                    include_once('userslist.php');
-                }
-                ?>
+                <div id="userTable"><?php include_once('usersList.php') ?></div>
             </div>
         </div>
     </div>
     </div>
     <script src="../javascript/functionality.js" defer></script>
+    <script src="../javascript/ajax.js" defer></script>
 </body>
 
 </html>
