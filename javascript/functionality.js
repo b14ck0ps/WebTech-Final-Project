@@ -54,5 +54,14 @@ window.onload = function () {
             }
         });
     }
+    const s_res = document.getElementById('student-res');
+    if (s_res) {
+        s_res.addEventListener("click", function (evt) {
+            var id = evt.target.id;
+            load('../controllers/getStudentcourseResult.php', 'id=' + parseInt(id), function (http) {
+                document.getElementById('resTable').innerHTML = http.responseText;
+            })
+        });
+    }
 };
 document.getElementById("smallScreen").innerHTML = ("<h1><strong> SCREEN IS TOO SMALL <br> MOBILE VERSION IS NOT SUPPORTED </strong><h1>");
