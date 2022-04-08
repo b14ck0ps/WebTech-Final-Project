@@ -24,7 +24,7 @@ require_once('../controllers/pageAccess.php');
                         <level>Notice</level>
                     </div>
                     <div class="add-notice-button">
-                        <button>New</button>
+                        <a href="#newNotice"><button>New</button></a>
                     </div>
                 </div>
                 <?php
@@ -47,9 +47,9 @@ require_once('../controllers/pageAccess.php');
                             </div>
                             <div class="n-action">
                                 <a href="#">
-                                    <button id="n-edit">
+                                    <!---<button id="n-edit">
                                         Edit
-                                    </button>
+                                    </button> ---!>
                                 </a>
                                 &ensp;&ensp;
                                 <a href="#">
@@ -64,6 +64,19 @@ require_once('../controllers/pageAccess.php');
                     ';
                 }
                 ?>
+            </div>
+            <div id="newNotice" class="noticeOverlay">
+                <div class="popupNot">
+                    <h2>Post a new Notice </h2>
+                    <div class="content">
+                        <div id="n-box">
+                            <div><input type="text" name="notice_titel" id="n-title" placeholder="Title"></div>
+                            <div><textarea name="notice" id="n-notice" placeholder="Notice"></textarea></div>
+                            <div class="Post-btn"><button>POST</button></div>
+                        </div>
+                        <a class="close" href="#">&times;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

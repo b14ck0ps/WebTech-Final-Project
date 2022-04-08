@@ -473,7 +473,8 @@ td {
 
 /* Stylish POP UP */
 .deleteOverlay,
-.finOverlay {
+.finOverlay,
+.noticeOverlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -494,6 +495,62 @@ td {
   opacity: 1;
 }
 
+.noticeOverlay {
+  display: flex;
+}
+
+.noticeOverlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.noticeOverlay input {
+  width: 50%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.noticeOverlay textarea {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #0e5886;
+  border: 2px solid #d1edf1;
+  resize: none;
+}
+
+.noticeOverlay textarea::placeholder {
+  font-family: sans-serif;
+  color: #B3B2B1;
+  padding-left: 5px;
+}
+
+.noticeOverlay :focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+.noticeOverlay button {
+  background-color: #05448b;
+  color: white;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.noticeOverlay button:hover {
+  color: #05448b;
+  background-color: white;
+  border: #05448b solid 1px;
+}
+
 .popup {
   margin: 300px auto;
   padding: 20px;
@@ -503,7 +560,8 @@ td {
   position: relative;
 }
 
-.popupFin {
+.popupFin,
+.popupNot {
   margin: 100px auto;
   padding: 20px;
   background: #fff;
@@ -512,8 +570,13 @@ td {
   position: relative;
 }
 
+.popupNot {
+  height: 600px;
+}
+
 .popup .close,
-.popupFin .close {
+.popupFin .close,
+.popupNot .close {
   position: absolute;
   top: 20px;
   right: 30px;
