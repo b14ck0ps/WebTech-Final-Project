@@ -38,6 +38,8 @@ window.onload = function () {
             let title = document.getElementById('n-title').value;
             let content = document.getElementById('n-notice').value;
             load('../controllers/postNotice.php', 'title=' + title + '&notice=' + content, function (http) {
+                document.getElementById('n-title').value = '';
+                document.getElementById('n-notice').value = '';
                 document.getElementById('notices').innerHTML = http.responseText;
             })
         });
