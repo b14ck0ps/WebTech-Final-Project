@@ -1,6 +1,11 @@
 <?php
 require_once('../controllers/pageAccess.php');
 require_once('../controllers/checkJS.php');
+if ($_COOKIE['usertype'] != 'admin') {
+    if ($_GET['userType'] == 'admin' || $_GET['userType'] == 'stuff') {
+        header('Location: ../index.php');
+    }
+}
 if ($_GET['userType'] == 'admin')
     $title = 'Admin Registration';
 else if ($_GET['userType'] == 'stuff')
@@ -59,6 +64,7 @@ else {
             <div class="group">
                 <input type="username" name="username" placeholder="Username">
                 <span class="error" id="username-error">The field is required.</span>
+                <span class="error" id="username-error_notAvailable">Username Not Available</span>
                 <span class="error" id="username-error_notAlphaNum">Invalid username. Only alphanumeric Allowd</span>
             </div>
             <div class="group ">

@@ -20,16 +20,13 @@ require_once('../controllers/pageAccess.php');
             <div class="main-body">
                 <div class="content-header">
                     <div class="title">
-                        <level>Account Information</level>
-                    </div>
-                    <div class="filter">
-                        <select name="filter" id="filter">
-                            <option value="faculty">Faculty</option>
-                            <option value="student">Student</option>
-                        </select>
+                        <level>Student's Course and Results</level>
                     </div>
                 </div>
-                <div id="userTable"><?php include_once('usersList.php') ?></div>
+                <?php
+                $_SESSION['filter'] = 'allStuffs';
+                include_once('student_list.php');
+                ?>
             </div>
         </div>
     </div>

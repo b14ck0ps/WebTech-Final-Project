@@ -4,7 +4,13 @@
 <body>
     <div class="users-table">
         <?php
-        $users = getAllusers($_SESSION['filter']);
+        if (!isset($_POST['filter'])) {
+            require_once('../model/usersModel.php');
+            $users = getAllusers('faculty');
+        } else {
+            require_once('../../model/usersModel.php');
+            $users = getAllusers($_POST['filter']);
+        }
         echo "
         <table>
         <tr>

@@ -8,6 +8,7 @@ $user = userinfo($_SESSION['username']);
 
 <head>
     <script src="../javascript/form-validation.js" defer></script>
+    <script src="../javascript/ajax.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>user profile</title>
 </head>
@@ -32,6 +33,7 @@ $user = userinfo($_SESSION['username']);
                             </div>
                             <div>
                                 <span class="error" id="username-error">The field is required.</span>
+                                <span class="error" id="username-error_notAvailable">Username Not Available</span>
                                 <span class="error" id="username-error_notAlphaNum">Invalid Username. Only en Alphabets are allowd</span>
                             </div>
                             <div class="edit-users-profile">
