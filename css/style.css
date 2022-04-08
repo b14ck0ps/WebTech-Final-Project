@@ -669,7 +669,7 @@ td {
 }
 
 #n-edit,
-#n-del {
+.n-del button {
   padding: 5px;
   border-radius: 5px;
   border: none;
@@ -683,7 +683,7 @@ td {
   color: white;
 }
 
-#n-del {
+.n-del button {
   background-color: red;
   color: white;
 }

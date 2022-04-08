@@ -21,3 +21,14 @@ function postAnotice($title, $notice, $id, $date)
         return false;
     }
 }
+function deleteNotice($notice_id)
+{
+    global $conn;
+    $sql = "DELETE FROM notice_archive WHERE notice_id = '{$notice_id}'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+    }
+}

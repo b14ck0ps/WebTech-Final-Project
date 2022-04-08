@@ -6,7 +6,7 @@ foreach (array_reverse($notices) as $notice) {
     $author = userinfobyId($notice["id"]);
     echo '
             <!-- notice card -->
-            <div class="notice-board">
+            <div class="notice-board" id="' . $notice['notice_id'] . '">
                 <div class="n-header">
                     <h1>' . $notice["title"] . '</h1>
                     <h4>' . $notice["date"] . '</h4>
@@ -24,10 +24,11 @@ foreach (array_reverse($notices) as $notice) {
                             </button> ---!>
                         </a>
                         &ensp;&ensp;
-                        <a href="#">
-                            <button id="n-del">
+                        <div class="n-del"><a href="#">
+                            <button onClick="getIdbyClick(this)" id="' . $notice['notice_id'] . '">
                                 Delete
                             </button>
+                        </div>
                         </a>
                     </div>
                 </div>

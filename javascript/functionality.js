@@ -44,5 +44,15 @@ window.onload = function () {
             })
         });
     }
+    const delNotice = document.getElementById('notices');
+    if (delNotice) {
+        delNotice.addEventListener('click', function () {
+            if (confirm("Are you sure you want to delete this notice?")) {
+                load('../controllers/deleteNotice.php', 'notice_id=' + parseInt(userId), function (http) {
+                    document.getElementById(userId).remove();
+                });
+            }
+        });
+    }
 };
 document.getElementById("smallScreen").innerHTML = ("<h1><strong> SCREEN IS TOO SMALL <br> MOBILE VERSION IS NOT SUPPORTED </strong><h1>");
