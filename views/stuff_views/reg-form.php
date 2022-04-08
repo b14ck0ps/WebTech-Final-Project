@@ -64,6 +64,7 @@ else {
             <div class="group">
                 <input type="username" name="username" placeholder="Username">
                 <span class="error" id="username-error">The field is required.</span>
+                <span class="error" id="username-error_notAvailable">Username Not Available</span>
                 <span class="error" id="username-error_notAlphaNum">Invalid username. Only alphanumeric Allowd</span>
             </div>
             <div class="group ">
