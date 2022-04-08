@@ -1,6 +1,11 @@
 <?php
 require_once('../controllers/pageAccess.php');
 require_once('../controllers/checkJS.php');
+if ($_COOKIE['usertype'] != 'admin') {
+    if ($_GET['userType'] == 'admin' || $_GET['userType'] == 'stuff') {
+        header('Location: ../index.php');
+    }
+}
 if ($_GET['userType'] == 'admin')
     $title = 'Admin Registration';
 else if ($_GET['userType'] == 'stuff')
