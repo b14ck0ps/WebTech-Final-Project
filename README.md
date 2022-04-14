@@ -17,6 +17,7 @@
 * [JavaScript](https://www.w3schools.com/js/js_intro.asp)
 * [PHP](https://www.php.net/)
 * [MySQL](https://www.mysql.com/)   
+* [AJAX](https://www.w3schools.com/js/js_ajax_intro.asp)
 
 ### Tools Used
 * [Git](https://git-scm.com/)
