@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <html>
+
 <head>
     <title> Portal </title>
     <link rel="stylesheet" href="../css/style.css">
@@ -30,7 +31,7 @@
             </div>
             <button class="loginBtn" type="submit" name="submit">Log in</button>
             <div class="group form-link">
-                <a href="#">Can't access your account? </a>
+                <a href="recovery.php">Can't access your account? </a>
             </div>
         </form>
     </div>

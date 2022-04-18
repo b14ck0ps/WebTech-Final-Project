@@ -17,6 +17,7 @@ const l_name_error_notAlpha = document.getElementById('l_name-error_notAlpha');
 const l_name_error = document.getElementById('l_name-error');
 const username_error = document.getElementById('username-error');
 const username_error_notAvailable = document.getElementById('username-error_notAvailable');
+const username_error_notExist = document.getElementById('username-error-notexist');
 const username_error_notAlphaNum = document.getElementById('username-error_notAlphaNum');
 const password_error = document.getElementById('password-error');
 const re_password_error = document.getElementById('re_password-error');
@@ -55,45 +56,47 @@ function matchPass(input, errorId) {
     });
 }
 // NULL ERROR HANDLING
-form.addEventListener('submit', (e) => {
-    let ulangth = f_name.value.length;
-    let plangth = password.value.length;
-    let fnlangth = f_name.value.length;
-    let lnlangth = l_name.value.length;
-    let unlangth = username.value.length;
-    let emlangth = email.value.length;
-    let phlangth = phone.value.length;
-    let adlangth = address.value.length;
-    let passlangth = password.value.length;
-    let repasslangth = re_rpassword.value.length;
-    if (ulangth <= 0 || plangth <= 0 || fnlangth <= 0 || lnlangth <= 0 || unlangth <= 0 || emlangth <= 0 || phlangth <= 0 || adlangth <= 0 || passlangth <= 0 || repasslangth <= 0) {
-        e.preventDefault();
-        if (ulangth <= 0) {
-            f_name_error.style.display = "block";
+if (form) {
+    form.addEventListener('submit', (e) => {
+        let ulangth = f_name.value.length;
+        let plangth = password.value.length;
+        let fnlangth = f_name.value.length;
+        let lnlangth = l_name.value.length;
+        let unlangth = username.value.length;
+        let emlangth = email.value.length;
+        let phlangth = phone.value.length;
+        let adlangth = address.value.length;
+        let passlangth = password.value.length;
+        let repasslangth = re_rpassword.value.length;
+        if (ulangth <= 0 || plangth <= 0 || fnlangth <= 0 || lnlangth <= 0 || unlangth <= 0 || emlangth <= 0 || phlangth <= 0 || adlangth <= 0 || passlangth <= 0 || repasslangth <= 0) {
+            e.preventDefault();
+            if (ulangth <= 0) {
+                f_name_error.style.display = "block";
+            }
+            if (plangth <= 0) {
+                password_error.style.display = "block";
+            }
+            if (fnlangth <= 0) {
+                f_name_error.style.display = "block";
+            }
+            if (lnlangth <= 0) {
+                l_name_error.style.display = "block";
+            }
+            if (unlangth <= 0) {
+                username_error.style.display = "block";
+            }
+            if (emlangth <= 0) {
+                email_error.style.display = "block";
+            }
+            if (phlangth <= 0) {
+                phone_error.style.display = "block";
+            }
+            if (adlangth <= 0) {
+                address_error.style.display = "block";
+            }
         }
-        if (plangth <= 0) {
-            password_error.style.display = "block";
-        }
-        if (fnlangth <= 0) {
-            f_name_error.style.display = "block";
-        }
-        if (lnlangth <= 0) {
-            l_name_error.style.display = "block";
-        }
-        if (unlangth <= 0) {
-            username_error.style.display = "block";
-        }
-        if (emlangth <= 0) {
-            email_error.style.display = "block";
-        }
-        if (phlangth <= 0) {
-            phone_error.style.display = "block";
-        }
-        if (adlangth <= 0) {
-            address_error.style.display = "block";
-        }
-    }
-});
+    });
+}
 // VALIDATION HANDLING
 let isAllValid = true;
 
@@ -230,12 +233,32 @@ function checkUsername() {
     })
 }
 
-function submitCheck() {
-    form.addEventListener('submit', (e) => {
-        if (!isAllValid) {
-            e.preventDefault();
-        }
-    });
+function checkUsernameRecovery() {
+    let isValid = false;
+    username.addEventListener('input', function () {
+        let chkUname = username.value;
+        load('../controllers/checkUsername.php', 'username=' + chkUname, function (response) {
+            if (response.responseText == 'false' && chkUname.length != 0) {
+                console.log(response);
+                isAllValid = isValid = false;
+                username_error_notExist.style.display = "none";
+            }
+            if (response.responseText == 'true') {
+                console.log(response);
+                isAllValid = isValid = true;
+                username_error_notExist.style.display = "block";
+            }
+        });
+    })
+}
+if (form) {
+    function submitCheck() {
+        form.addEventListener('submit', (e) => {
+            if (!isAllValid) {
+                e.preventDefault();
+            }
+        });
+    }
 }
 //nul error checking
 if (f_name)
@@ -245,6 +268,7 @@ if (l_name)
 if (username) {
     required(username, username_error);
     checkUsername();
+    checkUsernameRecovery();
 }
 if (password)
     required(password, password_error);
@@ -276,5 +300,5 @@ if (phone)
     phoneChech(phone, phone_error_invalid);
 if (salary)
     salaryCheck(salary, salary_error_invalid);
-
-submitCheck();
+if (form)
+    submitCheck();
