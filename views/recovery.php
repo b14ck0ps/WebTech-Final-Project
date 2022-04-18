@@ -6,6 +6,7 @@
 <head>
     <title> Portal </title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../javascript/ajax.js" defer></script>
     <script src="../javascript/form-validation.js" defer></script>
 </head>
 

@@ -246,7 +246,8 @@ function checkUsernameRecovery() {
             if (response.responseText == 'true') {
                 console.log(response);
                 isAllValid = isValid = true;
-                username_error_notExist.style.display = "block";
+                if (chkUname != '')
+                    username_error_notExist.style.display = "block";
             }
         });
     })
@@ -290,7 +291,7 @@ if (f_name)
 if (l_name)
     onlyAlpha(l_name, l_name_error_notAlpha);
 //only alpha numeric username
-if (username)
+if (username && username_error_notAlphaNum)
     onlyAlphaNumeric(username, username_error_notAlphaNum);
 // email check
 if (email)
