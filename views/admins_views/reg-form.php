@@ -91,7 +91,7 @@ else {
                 <span class="error" id="file_err">Invalid file formate</span> <!-- not implemented yet -->
             </div>
             <input type="hidden" name="userType" value="<?= $_GET['userType'] ?>">
-            <button class="RegBtn" type="submit" name="submit">REGISTATION</button>
+            <button class="RegBtn" type="submit" id="regBtn" name="submit">REGISTATION</button>
         </form>
     </div>
 </body>

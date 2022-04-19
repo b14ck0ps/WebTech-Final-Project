@@ -232,12 +232,13 @@ function checkUsername() {
         });
     })
 }
+const regBtn = document.getElementById('regBtn');
 
 function submitCheck() {
     form.addEventListener('submit', (e) => {
         if (!isAllValid) {
             e.preventDefault();
-        } else {
+        } else if (isAllValid && regBtn != null) {
             e.preventDefault();
             let formData = {
                 'usertype': usertype.value,
