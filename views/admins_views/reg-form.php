@@ -23,7 +23,7 @@ else {
 
 <body>
     <div class="reg-container">
-        <form class="reg-form" id="form" method="post" action="../controllers/RegistrationCheck.php" enctype='multipart/form-data'>
+        <form class="reg-form" id="form" method="post" action="" enctype='multipart/form-data'>
             <div class="heading-container">
                 <h2><?= $title ?></h2>
                 <p>Please Enter All The Necessary Information</p>
@@ -86,7 +86,8 @@ else {
                 <span class="error" id="address-error">The field is required.</span>
             </div>
             <div class="group">
-                <input type="file" name="profile_picture">
+                <!-- <input type="file" name="profile_picture">  -->
+                <!-- Dont have enough time fix upload by AJAX -->
                 <span class="error" id="file_err">Invalid file formate</span> <!-- not implemented yet -->
             </div>
             <input type="hidden" name="userType" value="<?= $_GET['userType'] ?>">

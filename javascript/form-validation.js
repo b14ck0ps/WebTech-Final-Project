@@ -1,6 +1,8 @@
 // get elements
 const f_name = document.querySelector('input[type="f_name"]');
 const l_name = document.querySelector('input[type="l_name"]');
+const gender = document.querySelector('input[type="radio"]');
+const dob = document.querySelector('input[type="date"]');
 const username = document.querySelector('input[type="username"]');
 const password = document.querySelector('input[type="password"]');
 const re_rpassword = document.querySelector('input[id="re_password"]');
@@ -8,6 +10,7 @@ const email = document.querySelector('input[type="email"]');
 const phone = document.querySelector('input[type="phone"]');
 const salary = document.querySelector('input[type="salary"]');
 const address = document.querySelector('input[type="address"]');
+const usertype = document.querySelector('input[type="hidden"]');
 const form = document.getElementById('form');
 
 //errors
@@ -234,6 +237,29 @@ function submitCheck() {
     form.addEventListener('submit', (e) => {
         if (!isAllValid) {
             e.preventDefault();
+        } else {
+            e.preventDefault();
+            let formData = {
+                'usertype': usertype.value,
+                'username': username.value,
+                'password': password.value,
+                'fname': f_name.value,
+                'lname': l_name.value,
+                'gender': gender.value,
+                'dob': dob.value,
+                'email': email.value,
+                'phone': phone.value,
+                'address': address.value,
+            };
+            let userdata = JSON.stringify(formData);
+            load('../controllers/RegistrationCheck.php', 'userdata=' + userdata, function (response) {
+                if (response.responseText == 'true') {
+                    alert('Registration Successful');
+                    window.location.href = 'editProfile.php?username=' + username.value;
+                } else {
+                    alert('Registration Failed');
+                }
+            });
         }
     });
 }
