@@ -239,7 +239,6 @@ function submitCheck() {
             e.preventDefault();
         } else {
             e.preventDefault();
-            //console.log(username.value); //---------------------------------------------------------------------------
             let formData = {
                 'usertype': usertype.value,
                 'username': username.value,
@@ -256,7 +255,7 @@ function submitCheck() {
             load('../controllers/RegistrationCheck.php', 'userdata=' + userdata, function (response) {
                 if (response.responseText == 'true') {
                     alert('Registration Successful');
-                    window.location.href = '../index.php';
+                    window.location.href = 'editProfile.php?username=' + username.value;
                 } else {
                     alert('Registration Failed');
                 }
