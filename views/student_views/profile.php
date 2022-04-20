@@ -50,7 +50,8 @@ $user = userinfo($_GET['username']);
                         </div>
                     </div>
                     <div class="profile-picture">
-                        <img src="https://via.placeholder.com/300" alt="profile picture">
+                        <img id="profile_picture" src="<?= $user['profile_picture'] ?>" alt="profile picture">
+                        
                     </div>
                 </div>
             </div>

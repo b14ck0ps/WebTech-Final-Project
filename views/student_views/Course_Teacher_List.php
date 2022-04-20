@@ -27,8 +27,34 @@ require_once('../model/usersModel.php');
                 </div>
                 <!-- Enter Code here -->
                 <div>
-                    <?php
-                    echo " working "; ?>
+                    
+                    
+
+                     <?php
+                     require_once('../model/courseModel.php');
+
+        
+            $student = getRes(userinfo($_SESSION['username'])['id']);
+            
+        
+        echo "<table>
+                <tr>
+                    <th>Subject Name</th>
+                    <th>Result</th>
+                </tr>
+            ";
+        foreach ($student as $course) {
+            // code...
+        
+            echo "
+                <tr>
+                    <td>{$course['course_name']}</td>
+                    <td>{$course['marks']}</td>
+                </tr>";
+            }
+        
+        echo "</table>";
+        ?>
                 </div>
             </div>
         </div>

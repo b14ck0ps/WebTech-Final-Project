@@ -5,9 +5,6 @@ if (isset($_GET['exam'])) {
 if (isset($_GET['meeting'])) {
     include_once('student_views/meeting.php');
 }
-if (isset($_GET['result'])) {
-    include_once('student_views/result.php');
-}
 if (isset($_GET['payment'])) {
     include_once('student_views/payment.php');
 }

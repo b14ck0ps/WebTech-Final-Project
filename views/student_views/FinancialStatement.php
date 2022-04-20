@@ -25,10 +25,36 @@ require_once('../model/usersModel.php');
                         <level>Title</level>
                     </div>
                 </div>
-                <!-- Enter Code here -->
+                
                 <div>
-                    <?php
-                    echo " working "; ?>
+                  <?php
+                     
+
+        
+            //$financials = getFin(userinfo($_SESSION['username'])['id']);
+            
+        
+        echo "<table>
+                <tr>
+                    
+                    <th>Balance</th>
+                    <th>Due</th>
+                </tr>
+            ";
+            require_once('../model/payHistoryModel.php');
+            $financials = student_financial();
+        foreach ($financials as $student_financial) {
+            // code...
+        
+            echo "
+                <tr>
+                    <td>{$student_financial['balance']}</td>
+                    <td>{$student_financial['due']}</td>
+                </tr>";
+            }
+        
+        echo "</table>";
+        ?>
                 </div>
             </div>
         </div>

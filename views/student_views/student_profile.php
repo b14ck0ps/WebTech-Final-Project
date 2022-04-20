@@ -58,6 +58,8 @@ $user = userinfo($_SESSION['username']);
     </div>
     </div>
     <script src="../javascript/functionality.js"></script>
+    <script src="../javascript/ajax.js" defer></script>
+
 </body>
 
 </html>

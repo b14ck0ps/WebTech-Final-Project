@@ -8,6 +8,6 @@ else if ($_COOKIE['usertype'] == 'faculty')
 else if ($_COOKIE['usertype'] == 'stuff')
     require_once('stuff_views/editProfile.php');
 else if ($_COOKIE['usertype'] == 'student')
-    require_once('student_views/editProfile.php');
+    require_once('student_views/Editprofile_student.php');
 else
     header('location: ../views/login.php');

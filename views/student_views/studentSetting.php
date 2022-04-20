@@ -1,75 +1,72 @@
 <?php
 require_once('../controllers/pageAccess.php');
-require_once('../model/usersmodel.php');
+require_once('../model/usersModel.php');
 $user = userinfo($_SESSION['username']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Student Profile</title>
-  <script src="../javascript/password-validation.js" defer></script>
+    <script src="../javascript/form-validation.js" defer></script>
+    <script src="../javascript/ajax.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>user profile</title>
 </head>
 
 <body>
 
-  <div id="smallScreen"></div>
-  <div class="desktop">
-    <div class="container">
-      <?php include_once('student_navbar.php') ?>
-    </div>
-    <div class="main">
-      <?php include_once('Student_sideNavbar.html') ?>
-      <div class="main-body">
-        <div class="prfile-flex">
-          <div class="info-text">
-            <form name="frmChange" method="post" action="../controllers/passwordCheck.php">
-              <div style="width:500px;">
-                <div class="message">
-                  <?php if (isset($message)) {
-                    echo $message;
-                  } ?>
-
-                </div>
-                <table border="0" cellpadding="10" cellspacing="0" width="500" align="center" class="tblSaveForm">
-                  <tr class="tableheader">
-                    <td colspan="2">Change Password</td>
-                    <?php
-                    if (isset($_GET['msg']) && $_GET['msg'] == 'required') {
-                      echo '<p class="error-user">Wrong username or password</p>';
-                    }
-                    ?>
-
-                  <tr>
-                    <td width="40%"><label>Current Password</label></td>
-                    <td width="60%"><input type="password" name="currentPassword" class="txtField" /><span id="currentPassword" class="required">required.</span></td>
-                  </tr>
-                  <tr>
-                    <td><label>New Password</label></td>
-                    <td>
-                      <input type="password" name="newPassword" class="txtField" /><span id="newPassword" class="required">required.</span>
-                    </td>
-                  </tr>
-                  <td><label>Confirm Password</label></td>
-
-                  <td><input type="password" name="confirmPassword" class="txtField" /><span id="confirmPassword" class="required">required.</span>
-                  </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
-                  </tr>
-                </table>
-              </div>
-            </form>
-
-          </div>
+    <div id="smallScreen"></div>
+    <div class="desktop">
+        <div class="container">
+            <?php include_once('student_navbar.php') ?>
         </div>
-      </div>
+        <div class="main">
+            <?php include_once('student_sideNavbar.html') ?>
+            <div class="main-body">
+                <form id="form" action="../controllers/editLoginfo.php" method="post">
+                    <div class="fullname"> User ID : <?= $user['id'] ?></div>
+                    <div class="prfile-flex">
+                        <div class="info-text">
+                            <div class="edit-users-profile">
+                                <label for="username">Username: </label>
+                                <input type="username" name="username" value="<?= $user['username'] ?>"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="username-error">The field is required.</span>
+                                <span class="error" id="username-error_notAvailable">Username Not Available</span>
+                                <span class="error" id="username-error_notAlphaNum">Invalid Username. Only en Alphabets are allowd</span>
+                            </div>
+                            <div class="edit-users-profile">
+                                <label for="password">New Password: </label>
+                                <input type="password" name="new_password"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="password-error">The field is required.</span>
+                                <span class="error" id="password-error_notAlpha">Invalid Password. Only en Alphabets are allowd</span>
+                            </div>
+                            <div class="edit-users-profile">
+                                <label for="password">Re-Password: </label>
+                                <input type="password" name="re_password" id="re_password"></input>
+                            </div>
+                            <div>
+                                <span class="error" id="re_password_null-error">The field is required.</span>
+                                <span class="error" id="re_password-error">Password Missmatch</span>
+                            </div>
+                            <div class="group">
+                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                <button type="submit" name="update" class="editbtn">UPDATE</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
-  <script src="../javascript/functionality.js"></script>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="../javascript/functionality.js"></script>
 </body>
 
 </html>

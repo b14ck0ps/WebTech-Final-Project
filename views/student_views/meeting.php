@@ -25,10 +25,34 @@ require_once('../model/usersModel.php');
                         <level>Title</level>
                     </div>
                 </div>
-                <!-- Enter Code here -->
+                
                 <div>
                     <?php
-                    echo " working "; ?>
+                     echo "
+                       <table>
+                          <tr>
+                            <th>Subject</th>
+                            <th>Day</th>
+                            <th>Date</th>
+                            <th>Links</th>
+                          </tr>
+                         ";
+                    require_once('../model/courseModel.php');
+                    $meeting = meetings();
+                    foreach ($meeting as $meetings) {
+                        echo "
+                <tr>
+                    <td>{$meetings['courseName']}</td>
+                    <td>{$meetings['day']}</td>
+                    <td>{$meetings['date']}</td>
+                    <td><a href='{$meetings['links']}' >{$meetings['links']}</a></td>
+                </tr>
+                ";
+                    } ?>
+                
+                    
+
+
                 </div>
             </div>
         </div>
