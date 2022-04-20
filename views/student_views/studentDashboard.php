@@ -85,6 +85,7 @@ require_once('../model/usersModel.php');
     </div>
     </div>
     <script src="../javascript/functionality.js"></script>
+    
 </body>
 
 </html>

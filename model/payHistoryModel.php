@@ -41,3 +41,16 @@ function changeStudentStatus($id, $status)
     } else
         return false;
 }
+
+
+function student_financial($id)
+{
+    global $conn;
+    $sql = "SELECT * FROM student_financial";
+    $fin = mysqli_query($conn, $sql);
+
+  while ($row = mysqli_fetch_assoc($fin)) {
+        $info[] = $row;
+    }
+    return $info;
+}

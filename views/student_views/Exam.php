@@ -28,21 +28,21 @@ require_once('../model/usersModel.php');
                 </div>
 
                 <div class="admin-table">
-                    <?php
-                    echo "
-        <table>
-        <tr>
-            <th>Subject</th>
-            <th>Exam Link</th>
-        </tr>
-        ";
-                    require_once('../model/studentModel.php');
+                  <?php
+                     echo "
+                       <table>
+                        <tr>
+                         <th>Subject</th>
+                         <th>Exam Link</th>
+                        </tr>
+                    ";
+                    require_once('../model/courseModel.php');
                     $exams = exam();
                     foreach ($exams as $exam) {
                         echo "
                 <tr>
                     <td>{$exam['examName']}</td>
-                    <td><a href='{$exam['links']}' >{$exam['links']}</a></td>
+                    <td><a href='{$exam['examLink']}' >{$exam['examLink']}</a></td>
                 </tr>
                 ";
                     } ?>
